@@ -1,5 +1,5 @@
 <?php
-require_once('auth.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,7 @@ require_once('auth.php');
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
-  <meta http-equiv="refresh" content="3; URL=http://gahfea.test/pages/kitchen/sales.php">
+  <meta http-equiv="refresh" content="3; URL=http://localhost/gahfea/pages/kitchen/sales.php">
   <title>GAHFEA</title>
   
   <link rel="shortcut icon" href="logo.jpg">

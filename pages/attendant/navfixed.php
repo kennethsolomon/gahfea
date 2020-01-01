@@ -1,5 +1,15 @@
 <?php
-require_once('auth.php');
+
+include ('../connect.php');
+session_start();
+
+$session_id  = $_SESSION['SESS_MEMBER_ID'];
+$session_position = $_SESSION['SESS_MEMBER_POSITION'];
+$query = $db->prepare("SELECT * FROM user WHERE id = ?");
+		$query->execute(array($session_id));
+		$row = $query->fetch();
+	
+		$session_attendant_name = $row['name'];
 ?>
 <?php
 function createRandomPassword() {

@@ -70,10 +70,11 @@
     						<h3 class="panel-title"><b>GAHFEA CAFE </b></h3>
     					</div>
     					<ul class="nav nav-pills">
-    						<li class="active"><a data-toggle="pill" href="#home">Admin</a></li>
-							<li><a data-toggle="pill" href="#menu3">Front Attendant</a></li>
+						<br />
+    						<center><li class="active"><a data-toggle="pill" href="#home">WELCOME ! Please Login your Credentials.</a></li></center>
+							<!-- <li><a data-toggle="pill" href="#menu3">Front Attendant</a></li>
 							<li><a data-toggle="pill" href="#menu1">Kitchen</a></li>
-    						<li><a data-toggle="pill" href="#menu2">Cashier</a></li>
+    						<li><a data-toggle="pill" href="#menu2">Cashier</a></li> -->
     					</ul>
     					<div class="tab-content">
     						<!-- Department -->
