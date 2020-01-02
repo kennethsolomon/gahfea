@@ -93,9 +93,9 @@
             <div class="row">
             <div class="col-lg-4">
             <br />
-            <form action="" method="post"class = "form-group" >
+            <!-- <form action="" method="post"class = "form-group" >
             <input type="submit" class="btn btn-primary" name="viewinfo" value = "View Info" class = "form-control" style="width: 123px;" />
-            </form>
+            </form> -->
             </div>
             </div>
               <div class="col-lg-4">
@@ -105,7 +105,7 @@
               <br />
             </div>
                 <?php
-                if (isset($_POST['viewinfo'])){
+                if (isset($_GET['invoice'])){
                   echo '
                   <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                   <thead>
