@@ -51,7 +51,23 @@
 
       <body>
             
-        <?php include('navfixed.php');?>
+        <?php include('navfixed.php');
+         function formatMoney($number, $fractional=false) {
+          if ($fractional) {
+            $number = sprintf('%.2f', $number);
+          }
+          while (true) {
+            $replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
+            if ($replaced != $number) {
+              $number = $replaced;
+            } else {
+              break;
+            }
+          }
+          return $number;
+        }
+        
+        ?>
 
         <div class="container">
           <div class="row">
@@ -105,7 +121,7 @@
               <br />
             </div>
                 <?php
-                if (isset($_GET['invoice'])){
+                if (isset($_GET['invoice']) ){
                   echo '
                   <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                   <thead>
@@ -171,27 +187,13 @@
                         </tr>
                         <?php
                   }         
-
-                }
+                
                 ?>
                 <tr>
                   <td colspan="8"><strong style="font-size: 12px; color: #222222;">Total:</strong></td>
                   <td colspan="4"><strong style="font-size: 12px; color: #222222;">
                     <?php
-                    function formatMoney($number, $fractional=false) {
-                      if ($fractional) {
-                        $number = sprintf('%.2f', $number);
-                      }
-                      while (true) {
-                        $replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
-                        if ($replaced != $number) {
-                          $number = $replaced;
-                        } else {
-                          break;
-                        }
-                      }
-                      return $number;
-                    }
+                  
                     $sdsd=$_GET['invoice'];
                     $resultas = $db->prepare("SELECT sum(total_amount) FROM sales_order WHERE invoice= :a && order_status != 'paid' && order_status != ''");
                     $resultas->bindParam(':a', $sdsd);
@@ -200,7 +202,7 @@
                       $fgfg=$rowas['sum(total_amount)'];
                       echo formatMoney($fgfg, true);
                     }
-                    ?>
+                  }   ?> 
                   </strong></td>
                 </tr>
 
