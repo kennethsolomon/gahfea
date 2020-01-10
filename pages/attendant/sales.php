@@ -60,22 +60,35 @@
             <div class="col-lg-12">
               <h1 class="page-header">Front Attendant</h1>
             </div>
-
-            <div id="maintable"><div style="margin-top: -19px; margin-bottom: 21px;">
-            </div>
-            
-            
+            <div id="maintable">
+            <div style="margin-top: -19px; margin-bottom: 21px;">
+              <form action="getinvoiceid2.php" method="get" id="tableForm" name="tableForm" class = "form-group" >
+                <input type="hidden" name="invoice" class = "form-control" value="<?php echo $_GET['invoice']; ?>" />
+                <label>Select a Category</label><br />
+                  <select name="category" id="table_number" style="width:300px;" class="chzn-select"required onchange="tableForm.submit()" >
+                    <option></option>
+                    <option>All Day Rice Meal</option>
+                    <option>Appetizer</option>
+                    <option>Bundle Meal</option>
+                    <option>Hot Drinks</option>
+                    <option>Pasta</option>
+                    <option>Smoothie</option>
+                  </select>
+                  <br />
+                </div>
+                </div>
+              </form>
             <form action="incoming.php" method="post" class = "form-group" >
               <input type="hidden" name="pt" class = "form-control" value="<?php echo $_GET['id']; ?>" />
               <input type="hidden" name="invoice" class = "form-control" value="<?php echo $_GET['invoice']; ?>" />
-              
               <div class="col-lg-4">
                 <label>Select a Product</label><br />
-                <select  name="product"  id="product"  class="chzn-select" required> 
+                <select  name="product"  id="product"  class="chzn-select" style="width: 280px;" required> 
                   <option></option>
                   <?php
                   include('connect.php');
-                  $result = $db->prepare("SELECT * FROM products");
+                  $category = $_GET['category'];
+                  $result = $db->prepare("SELECT * FROM products WHERE category = '$category'");
                   $result->bindParam(':userid', $res);
                   $result->execute();
                   for($i=0; $row = $result->fetch(); $i++){
@@ -88,9 +101,9 @@
                       }
                       ?>
                       >
-                      <?php echo $row['product_code']; ?>
-                      - <?php echo $row['product_name']; ?>
-                      - <?php echo $row['description_name']; ?>
+                      <!-- <?php echo $row['product_code']; ?>- -->
+                       <?php echo $row['product_name']; ?>
+                      <!-- - <?php echo $row['description_name']; ?> -->
                       - <?php echo $row['qty_left']; ?>
 
                     </option>

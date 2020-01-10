@@ -78,12 +78,9 @@
             <div id="maintable"><div style="margin-top: -19px; margin-bottom: 21px;">
             </div>
             <form action="getinvoiceid.php" method="get" id="tableForm" name="tableForm" class = "form-group" >
-              <!-- <input type="hidden" name="pt" class = "form-control" value="<?php echo $_GET['id']; ?>" />
-               -->
               <input type="hidden" name="invoice" class = "form-control" value="" />
               <label>Select a Table Number</label><br />
               <select name="table_number" id="table_number" style="width:500px;" class="chzn-select"required onchange="tableForm.submit()" >
-              <!-- <select  name="table_number"  id="table_number" style="width:500px;" class="chzn-select" required> -->
                 <option></option>
                 <option>1</option>
                 <option>2</option>
