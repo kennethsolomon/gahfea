@@ -79,7 +79,7 @@
                 </div>
               </form>
             <form action="incoming.php" method="post" class = "form-group" >
-              <input type="hidden" name="pt" class = "form-control" value="<?php echo $_GET['id']; ?>" />
+              <!-- <input type="hidden" name="pt" class = "form-control" value="<?php echo $_GET['id']; ?>" /> -->
               <input type="hidden" name="invoice" class = "form-control" value="<?php echo $_GET['invoice']; ?>" />
               <div class="col-lg-4">
                 <label>Select a Product</label><br />
@@ -131,7 +131,7 @@
                 <option></option>
                 <?php
                     include('connect.php');
-                    $result = $db->prepare("SELECT * FROM sales_order WHERE order_status = 'pending' ORDER BY invoice ");
+                    $result = $db->prepare("SELECT * FROM sales_order WHERE order_status = 'pending' OR order_status = 'served' ORDER BY invoice ");
                     $result->bindParam(':userid', $res);
                     $result->execute();
                     for($i=0; $row = $result->fetch(); $i++){
@@ -298,7 +298,7 @@
                 <?php
                 if(isset($_POST["list_order_button"])){
                 // $invoice_number = $_POST['invoice_number'];
-                $result = $db->prepare("SELECT * FROM sales_order where order_status = 'pending' ORDER BY invoice ");
+                $result = $db->prepare("SELECT * FROM sales_order where order_status = 'pending' OR order_status = 'served' ORDER BY invoice ");
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
                   ?>

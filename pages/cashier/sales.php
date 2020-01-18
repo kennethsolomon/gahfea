@@ -88,7 +88,7 @@
                 <option>4</option>
                 <option>5</option>
                 <option>6</option>
-                <option>7</option>
+                <!-- <option>7</option>
                 <option>8</option>
                 <option>9</option>
                 <option>10</option>
@@ -97,7 +97,7 @@
                 <option>13</option>
                 <option>14</option>
                 <option>15</option>
-                <option>16</option>
+                <option>16</option> -->
               </select>
               <br />
             </div>
@@ -118,13 +118,12 @@
               <br />
             </div>
                 <?php
-                if (isset($_GET['invoice']) ){
+                if (isset($_GET['invoice']) && isset($_GET['table_number']) ){
                   echo '
                   <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                   <thead>
                     <tr>
-                      <th> Product Code </th>
-                      <th> Brand Name </th>
+                      <th> Name </th>
                       <th> Description Name </th>
                       <th> Category </th>
                       <th> Quantity </th>
@@ -142,13 +141,12 @@
                     include('connect.php');
                     $table_number = $_GET['table_number'];
                     $id = $_GET['invoice'];
-                    $result = $db->prepare("SELECT * FROM sales_order WHERE invoice = :invoiceid && order_status != 'paid' && order_status != ''");
+                    $result = $db->prepare("SELECT * FROM sales_order WHERE invoice = :invoiceid && order_status = 'served' && order_status != ''");
                     $result->bindParam(':invoiceid', $id);
                     $result->execute();
                     for($i=0; $row = $result->fetch(); $i++){     
                       ?>
                       <tr class="record">
-                        <td><?php echo $row['product']; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['dname']; ?></td>
                         <td><?php echo $row['category']; ?></td>
@@ -192,7 +190,7 @@
                     <?php
                   
                     $sdsd=$_GET['invoice'];
-                    $resultas = $db->prepare("SELECT sum(total_amount) FROM sales_order WHERE invoice= :a && order_status != 'paid' && order_status != ''");
+                    $resultas = $db->prepare("SELECT sum(total_amount) FROM sales_order WHERE invoice= :a && order_status = 'served' && order_status != 'paid' && order_status != ''");
                     $resultas->bindParam(':a', $sdsd);
                     $resultas->execute();
                     for($i=0; $rowas = $resultas->fetch(); $i++){
