@@ -88,7 +88,7 @@
                   <?php
                   include('connect.php');
                   $category = $_GET['category'];
-                  $result = $db->prepare("SELECT * FROM products WHERE category = '$category'");
+                  $result = $db->prepare("SELECT * FROM products WHERE category = '$category  '");
                   $result->bindParam(':userid', $res);
                   $result->execute();
                   for($i=0; $row = $result->fetch(); $i++){
@@ -164,8 +164,7 @@
             <table style="margin-top:10px" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
               <thead>
                 <tr>
-                  <th> Product Code </th>
-                  <th> Brand Name </th>
+                  <th> Name </th>
                   <th> Description Name </th>
                   <th> Category </th>
                   <th> Quantity </th>
@@ -188,7 +187,6 @@
                 for($i=0; $row = $result->fetch(); $i++){
                   ?>
                   <tr class="record">
-                    <td><?php echo $row['product']; ?></td>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['dname']; ?></td>
                     <td><?php echo $row['category']; ?></td>
@@ -231,7 +229,7 @@
                 }
                 ?>
                 <tr>
-                  <td colspan="8"><strong style="font-size: 12px; color: #222222;">Total:</strong></td>
+                  <td colspan="7"><strong style="font-size: 12px; color: #222222;">Total:</strong></td>
                   <td colspan="4"><strong style="font-size: 12px; color: #222222;">
                     <?php
                     function formatMoney($number, $fractional=false) {

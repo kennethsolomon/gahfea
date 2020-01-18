@@ -24,8 +24,7 @@ $categ=$row['category'];
 $qtyleft=$row['qty_left'];
 }
 
-if(empty($order_list)){
-    //edit qty
+if($order_list){
     $sql = "UPDATE products 
     SET qty_left=qty_left-?
     WHERE product_code=?";
@@ -40,26 +39,49 @@ if(empty($order_list)){
     $sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,discount,category,date,omonth,oyear,qtyleft,dname,vat,total_amount,table_number,order_status) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k,:l,:m,:n,:o,:p,'pending')";
     $q = $db->prepare($sql);
     $q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':g'=>$discount,':h'=>$categ,':i'=>$date,':j'=>$month,':k'=>$year,':l'=>$z,':m'=>$dname,':n'=>$vat,':o'=>$total,':p'=>$table_number));
-    header("location: sales.php?id=$w&invoice=$a");
-    // header("location: sales.php?invoice=$finalcode");
-} else if(!empty($order_list)) {
-    //edit qty
-    $sql = "UPDATE products 
-    SET qty_left=qty_left-?
-    WHERE product_code=?";
-    $q = $db->prepare($sql);
-    $q->execute(array($c,$b));
-    $fffffff=$asasa-$discount;
-    $d=$fffffff*$c;
-    $z=$qtyleft-$c;
-    $vat=$d*$r;
-    $total=$vat+$d;
-    // query
-    $sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,discount,category,date,omonth,oyear,qtyleft,dname,vat,total_amount,table_number,order_status) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k,:l,:m,:n,:o,:p,'pending')";
-    $q = $db->prepare($sql);
-    $q->execute(array(':a'=>strchr($order_list, "RS"),':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':g'=>$discount,':h'=>$categ,':i'=>$date,':j'=>$month,':k'=>$year,':l'=>$z,':m'=>$dname,':n'=>$vat,':o'=>$total,':p'=>$table_number));
-    header("location: sales.php?id=$w&invoice=$a");
+    $url="sales.php?id=$w&invoice=$a";
+    $url=str_replace(PHP_EOL, '', $url);
+    header("Location: $url");
+    // header("location:sales.php?id=$w&invoice=$a");
 }
+
+// if(empty($order_list)){
+//     //edit qty
+//     $sql = "UPDATE products 
+//     SET qty_left=qty_left-?
+//     WHERE product_code=?";
+//     $q = $db->prepare($sql);
+//     $q->execute(array($c,$b));
+//     $fffffff=$asasa-$discount;
+//     $d=$fffffff*$c;
+//     $z=$qtyleft-$c;
+//     $vat=$d*$r;
+//     $total=$vat+$d;
+//     // query
+//     $sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,discount,category,date,omonth,oyear,qtyleft,dname,vat,total_amount,table_number,order_status) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k,:l,:m,:n,:o,:p,'pending')";
+//     $q = $db->prepare($sql);
+//     $q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':g'=>$discount,':h'=>$categ,':i'=>$date,':j'=>$month,':k'=>$year,':l'=>$z,':m'=>$dname,':n'=>$vat,':o'=>$total,':p'=>$table_number));
+//     header("location:sales.php?id=$w&invoice=$a");
+//     // header("location: sales.php?invoice=$finalcode");
+// } else if(!empty($order_list)) {
+//     //edit qty
+//     $sql = "UPDATE products 
+//     SET qty_left=qty_left-?
+//     WHERE product_code=?";
+//     $q = $db->prepare($sql);
+//     $q->execute(array($c,$b));
+//     $fffffff=$asasa-$discount;
+//     $d=$fffffff*$c;
+//     $z=$qtyleft-$c;
+//     $vat=$d*$r;
+//     $total=$vat+$d;
+//     // query
+//     $sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,discount,category,date,omonth,oyear,qtyleft,dname,vat,total_amount,table_number,order_status) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k,:l,:m,:n,:o,:p,'pending')";
+//     $q = $db->prepare($sql);
+//     $q->execute(array(':a'=>strchr($order_list, "RS"),':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':g'=>$discount,':h'=>$categ,':i'=>$date,':j'=>$month,':k'=>$year,':l'=>$z,':m'=>$dname,':n'=>$vat,':o'=>$total,':p'=>$table_number));
+//     header("location: sales.php?id=$w&invoice=$a");
+//     die();
+// }
 
 
 
