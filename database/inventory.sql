@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2020 at 02:51 AM
+-- Generation Time: Jan 22, 2020 at 03:28 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -167,7 +167,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `description_name`, `unit`, `cost`, `price`, `supplier`, `qty_left`, `category`, `date_delivered`, `expiration_date`) VALUES
-(1, 'P-6323323', 'Daing na bangus w/ egg salad and rice', 'Daing na bangus w/ egg salad and rice', 'Per Pieces', '400', '300', 'GAHFEA', 209, 'All Day Rice Meal', '2019-11-12', '2019-12-31');
+(1, 'P-6323323', 'Daing na bangus w/ egg salad and rice', 'Daing na bangus w/ egg salad and rice', 'Per Pieces', '400', '300', 'GAHFEA', 168, 'All Day Rice Meal', '2019-11-12', '2019-12-31');
 
 -- --------------------------------------------------------
 
@@ -287,15 +287,10 @@ CREATE TABLE `sales_order` (
 --
 
 INSERT INTO `sales_order` (`transaction_id`, `invoice`, `product`, `qty`, `amount`, `name`, `price`, `discount`, `category`, `date`, `omonth`, `oyear`, `qtyleft`, `dname`, `vat`, `total_amount`, `table_number`, `order_status`) VALUES
-(1, 'RS-3432903', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '11/12/2019', 'November', '2019', '99', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
-(2, 'RS-372023', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '12/14/2019', 'December', '2019', '98', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
-(3, 'RS-372023', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '12/14/2019', 'December', '2019', '97', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
-(4, 'RS-2303303', 'P-6323323', '2', '600', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '12/14/2019', 'December', '2019', '95', 'Daing na bangus w/ egg salad and rice', '0', '600', '0', 'paid'),
-(5, 'RS-27300933', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '12/14/2019', 'December', '2019', '94', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'pending'),
-(6, 'RS-2303303', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '12/14/2019', 'December', '2019', '93', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
-(7, 'RS-2303303', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '12/14/2019', 'December', '2019', '92', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
-(8, 'RS-2303303', 'P-6323323', '2', '600', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/01/2020', 'January', '2020', '210', 'Daing na bangus w/ egg salad and rice', '0', '600', '0', 'paid'),
-(9, 'RS-27300933', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/02/2020', 'January', '2020', '209', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'pending');
+(60, 'RS-253992', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/18/2020', 'January', '2020', '172', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'served'),
+(62, 'RS-253992', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/18/2020', 'January', '2020', '170', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'pending'),
+(63, 'RS-95023', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/18/2020', 'January', '2020', '169', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'served'),
+(65, 'RS-95023', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/18/2020', 'January', '2020', '168', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'pending');
 
 -- --------------------------------------------------------
 
@@ -493,7 +488,7 @@ ALTER TABLE `sales`
 -- AUTO_INCREMENT for table `sales_order`
 --
 ALTER TABLE `sales_order`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
 
 --
 -- AUTO_INCREMENT for table `supliers`
