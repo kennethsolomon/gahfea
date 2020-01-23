@@ -3,7 +3,7 @@
 $db_host		= 'localhost';
 $db_user		= 'root';
 $db_pass		= '';
-$db_database	= 'inventory'; 
+$db_database	= 'inventory_gahfea'; 
 
 /* End config */
 
