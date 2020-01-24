@@ -131,7 +131,7 @@
                 <option></option>
                 <?php
                     include('connect.php');
-                    $result = $db->prepare("SELECT * FROM sales_order WHERE order_status = 'pending' OR order_status = 'served' ORDER BY invoice ");
+                    $result = $db->prepare("SELECT * FROM sales_order WHERE order_status = 'pending' OR order_status = 'served' GROUP BY invoice ");
                     $result->bindParam(':userid', $res);
                     $result->execute();
                     for($i=0; $row = $result->fetch(); $i++){
@@ -146,7 +146,7 @@
                         >
                         <?php echo '';?>
                           <?php echo 'Table'.$row['table_number']; ?>
-                         - <?php echo $row['invoice']; ?>
+                         <?php echo $row['invoice']; ?>
                       </option>
                     } 
                       <?php

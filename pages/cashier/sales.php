@@ -185,7 +185,7 @@
                 
                 ?>
                 <tr>
-                  <td colspan="8"><strong style="font-size: 12px; color: #222222;">Total:</strong></td>
+                  <td colspan="7"><strong style="font-size: 12px; color: #222222;">Total:</strong></td>
                   <td colspan="4"><strong style="font-size: 12px; color: #222222;">
                     <?php
                   
