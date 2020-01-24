@@ -68,8 +68,8 @@ for($i=0; $row = $result->fetch(); $i++){
 		<div style="width: 100%;">
 			<div style="width: 459px;">
 			<br>
-			<p style="font-size: 20px;"><b>	GAHFEA <br />
-					Address: Talisay Sorsogon City, Sorsogon<br />
+			<p style="font-size: 14px;"><b>	GAHFEA <br />
+					Address: Almendras-Cogon Ground Floor Gaisano Capital Sorsogon<br />
 					Contact No: 0912345678<br>
 					Email Add : gahfea@gmail.com</b><br></p>
 					<div>
