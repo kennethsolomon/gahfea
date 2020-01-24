@@ -62,7 +62,8 @@
             </div>
             <div id="maintable">
             <div style="margin-top: -19px; margin-bottom: 21px;">
-              <form action="getinvoiceid2.php" method="get" id="tableForm" name="tableForm" class = "form-group" >
+            <div class="col-sm-12">
+            <form action="getinvoiceid2.php" method="get" id="tableForm" name="tableForm" class = "form-group" >
                 <input type="hidden" name="invoice" class = "form-control" value="<?php echo $_GET['invoice']; ?>" />
                 <label>Select a Category</label><br />
                   <select name="category" id="table_number" style="width:300px;" class="chzn-select"required onchange="tableForm.submit()" >
@@ -159,6 +160,8 @@
                 <input type="submit" class="btn btn-primary" value="Add Order" class = "form-control" style="width: 123px;margin-top:5px" />
               </div>
             </form>
+            </div>
+              
             
             <div class="table-responsive col-lg-12">
             <table style="margin-top:10px" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">

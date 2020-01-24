@@ -36,49 +36,33 @@ $finalcode='RS-'.createRandomPassword();
 <!-- Navigation -->
 <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
 	<div class="navbar-header">
-		<!-- <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-			<span class="icon-bar"></span>
-		</button> -->
-		<a style="font-size: 20px;" class="navbar-brand"  href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><b>GAHFEA<b></a>
 	</div>
 	<!-- /.navbar-header -->
-
-	<ul class="nav navbar-top-links navbar-right">
-	Welcome:<strong> <?php echo $session_attendant_name; ?></strong>      
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-				<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
-			</a>
-			<ul class="dropdown-menu dropdown-user">
-					<li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
-					</li>
-				</ul>
-				<!-- /.dropdown-user -->
-			</li>
-			<!-- /.dropdown -->
-		</ul>
+	<div class="row">
+		<div class="col-sm-4">
+		<a style="font-size: 20px;" class="navbar-brand"  href="sales.php?id=cash&invoice=<?php echo $finalcode ?>"><b>GAHFEA<b></a>
+		</div>
+		<div class="col-sm-4 col-lg-8" style="text-align:right">
+			<ul class="nav navbar-top-links navbar-right">
+			Welcome:<strong> <?php echo $session_attendant_name; ?></strong>      
+			<li class="dropdown">
+				<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+					<i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+				</a>
+				<ul class="dropdown-menu dropdown-user">
+						<li><a href="logout.php"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+						</li>
+					</ul>
+					<!-- /.dropdown-user -->
+				</li>
+				<!-- /.dropdown -->
+			</ul>
+		</div>
+	</div>
+	
+	
+	
+	
 		<!-- /.navbar-top-links -->
 
-
-
-		<!-- <div class="navbar-default sidebar" role="navigation">
-			<div class="sidebar-nav navbar-collapse">
-				<ul class="nav" id="side-menu">
-					<li>
-						<a href="#"><i class="fa fa-money fa-fw"></i> Select payment method<span class="fa arrow"></span></a>
-						<ul class="nav nav-second-level">
-							<li>
-								<a href="sales.php?id=cash&invoice=<?php echo $finalcode ?>">Cash</a>
-							</li>
-							<li>
-								<a href="sales.php?id=credit&invoice=<?php echo $finalcode ?>">Credit</a>
-							</li>
-						</ul>
-					</li>
-				</div>
-			</div> -->
-			<!-- /.navbar-static-side -->
 		</nav>
