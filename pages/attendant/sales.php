@@ -160,7 +160,7 @@
               </div>
             </form>
             
-            <div class="col-lg-12">
+            <div class="table-responsive col-lg-12">
             <table style="margin-top:10px" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
               <thead>
                 <tr>
@@ -271,13 +271,15 @@
       <!-- /#page-wrapper -->
       <div class="container">
       <form action="" method="post" class = "form-group" >
-        <div class="col-lg-10">
-           
-                <input name="list_order_button" type="submit" style="margin-bottom:10px" class="btn btn-primary" value="Order Pending List" class = "form-control" />
-              </div>
-           
-                  <!-- Database List of Orders -->
-                  <table style="margin-top:10px" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+      <div class="row">
+      <div class="col-lg-12">
+          <input name="list_order_button" type="submit" style="margin-bottom:10px" class="btn btn-primary" value="Order Pending List" class = "form-control" />
+        </div>
+      </div>
+        <div class="row">
+        <!-- Database List of Orders -->
+        <div class="table-responsive col-sm-12">
+              <table style="margin-top:10px" width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
               <thead>
                 <tr>
                   <th> Table Number </th>
@@ -287,8 +289,7 @@
                   <th> Category </th>
                   <th> Quantity </th>
                   <th> Price </th>
-                  <!-- <th> Discount </th>
-                  <th> VAT </th> -->
+                 
                   <th> Amount </th>
                   <th> Total Amount </th>
                   <th> Delete </th>
@@ -297,7 +298,6 @@
               <tbody>
                 <?php
                 if(isset($_POST["list_order_button"])){
-                // $invoice_number = $_POST['invoice_number'];
                 $result = $db->prepare("SELECT * FROM sales_order where order_status = 'pending' OR order_status = 'served' ORDER BY invoice ");
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
@@ -315,18 +315,6 @@
                       echo formatMoney($ppp, true);
                       ?>
                     </td>
-                    <!-- <td>
-                      <?php
-                      // $ddd=$row['discount'];
-                      // echo formatMoney($ddd, true);
-                      ?>
-                    </td> -->
-                    <!-- <td> -->
-                      <?php
-                      // $fff=$row['vat'];
-                      // echo formatMoney($fff, true);
-                      ?>
-                   
                     <td>
                       <?php
                       $ccc=$row['amount'];
@@ -349,11 +337,17 @@
                 ?>
                 </tbody>
                 </table>
+              </div>
+              
                 </form>
-   
-        <div class="col-lg-2">
-         <a onClick="javascript: return confirm('Proceed to Next Customer?');" class = "btn btn-success" href="sales.php?id=cash&invoice=<?php echo $finalcode ?>">Next Customer</a>
-        </div> 
+        </div>
+              
+            <div class="row">
+              <div class="col-lg-12">
+                <a onClick="javascript: return confirm('Proceed to Next Customer?');" class = "btn btn-success" href="sales.php?id=cash&invoice=<?php echo $finalcode ?>">Next Customer</a>
+              </div> 
+            </div>
+        
       <!-- jQuery -->
       <script src="vendor/jquery/jquery.min.js"></script>
 
