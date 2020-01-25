@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.1
+-- version 4.9.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jan 23, 2020 at 12:58 PM
--- Server version: 8.0.18-0ubuntu0.19.10.1
--- PHP Version: 7.3.11-0ubuntu0.19.10.2
+-- Host: 127.0.0.1
+-- Generation Time: Jan 25, 2020 at 03:18 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -167,7 +167,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `description_name`, `unit`, `cost`, `price`, `supplier`, `qty_left`, `category`, `date_delivered`, `expiration_date`) VALUES
-(1, 'P-6323323', 'Daing na bangus w/ egg salad and rice', 'Daing na bangus w/ egg salad and rice', 'Per Pieces', '400', '300', 'GAHFEA', 168, 'All Day Rice Meal', '2019-11-12', '2019-12-31');
+(1, 'P-6323323', 'Daing na bangus w/ egg salad and rice', 'Daing na bangus w/ egg salad and rice', 'Per Pieces', '400', '300', 'GAHFEA', 149, 'All Day Rice Meal', '2019-11-12', '2019-12-31');
 
 -- --------------------------------------------------------
 
@@ -253,7 +253,8 @@ CREATE TABLE `sales` (
 INSERT INTO `sales` (`transaction_id`, `invoice_number`, `cashier`, `date`, `type`, `amount`, `due_date`, `name`, `balance`, `total_amount`, `cash`, `month`, `year`, `p_amount`, `vat`, `address`, `contact_number`) VALUES
 (1, 'RS-3432903', 'cashier', '11/12/2019', 'cash', '300', '', 'asd', '', '', '500', 'November', '2019', '300', '36', 'asd', '12312321'),
 (2, 'RS-372023', 'cashier', '12/14/2019', 'cash', '600', '', '', '', '', 'Cash', 'December', '2019', '300', '36', 'Seabreeeze', '123123'),
-(3, 'RS-2303303', 'Test3', '01/01/2020', 'cash', '1800', '', '', '', '', '1800', 'January', '2020', '600', '72', 'address', '0912321');
+(3, 'RS-2303303', 'Test3', '01/01/2020', 'cash', '1800', '', '', '', '', '1800', 'January', '2020', '600', '72', 'address', '0912321'),
+(4, 'RS-059022', 'Test3', '01/24/2020', 'cash', '600', '', 'test', '', '', '700', 'January', '2020', '300', '36', 'test', '213');
 
 -- --------------------------------------------------------
 
@@ -287,10 +288,8 @@ CREATE TABLE `sales_order` (
 --
 
 INSERT INTO `sales_order` (`transaction_id`, `invoice`, `product`, `qty`, `amount`, `name`, `price`, `discount`, `category`, `date`, `omonth`, `oyear`, `qtyleft`, `dname`, `vat`, `total_amount`, `table_number`, `order_status`) VALUES
-(60, 'RS-253992', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/18/2020', 'January', '2020', '172', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'served'),
-(62, 'RS-253992', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/18/2020', 'January', '2020', '170', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'pending'),
-(63, 'RS-95023', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/18/2020', 'January', '2020', '169', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'served'),
-(65, 'RS-95023', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/18/2020', 'January', '2020', '168', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'pending');
+(99, 'RS-059022', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/24/2020', 'January', '2020', '149', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(100, 'RS-059022', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/24/2020', 'January', '2020', '148', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid');
 
 -- --------------------------------------------------------
 
@@ -482,13 +481,13 @@ ALTER TABLE `purchases_item`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sales_order`
 --
 ALTER TABLE `sales_order`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=102;
 
 --
 -- AUTO_INCREMENT for table `supliers`
