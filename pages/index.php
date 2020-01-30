@@ -26,7 +26,7 @@
 	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
-	<body>
+	<body style="background-image: url('coffee-background.jpg');">
 
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,15 +65,12 @@
     			<div class="col-md-4 col-md-offset-4">
     				<div class="login-panel panel panel-default">
     					<div class="panel-heading">
-    						<h3 class="panel-title"><b>GAHFEA CAFE </b></h3>
+    						<center><h3 class="panel-title"><b>GAHFEA CAFE </b></h3></center>
     					</div>
-    					<ul class="nav nav-pills">
+    					<!-- <ul class="nav nav-pills">
 						<br />
     						<center><li class="active"><a data-toggle="pill" href="#home">WELCOME ! Please Login your Credentials.</a></li></center>
-							<!-- <li><a data-toggle="pill" href="#menu3">Front Attendant</a></li>
-							<li><a data-toggle="pill" href="#menu1">Kitchen</a></li>
-    						<li><a data-toggle="pill" href="#menu2">Cashier</a></li> -->
-    					</ul>
+    					</ul> -->
     					<div class="tab-content">
     						<!-- Department -->
     						<div id="home" class="tab-pane fade in active">
@@ -86,7 +83,7 @@
     									<input type="password" class="form-control" name="pass" placeholder="Password">
     								</div>
     								<div class="form-group">
-    									<button class="btn btn-block btn-success" id = "btn-login" name = "btn-login">Log in</button>
+    									<button class="btn btn-block btn-success" id = "btn-login" name = "btn-login" style="background-color: brown; border: 0px">Log in</button>
     								</div>
     								<div class="form-group" id="alert-msg">
     								</div>
