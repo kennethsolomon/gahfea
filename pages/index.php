@@ -26,8 +26,6 @@
 	<link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 
-	<body style="background-image: url('coffee-background.jpg');">
-
 		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -37,7 +35,7 @@
 
     </head>
 
-    <body>
+	<body style="background-image: url('coffee-background.jpg');">
     	<?php
     	function createRandomPassword() {
     		$chars = "003232303232023232023456789";

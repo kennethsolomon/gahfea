@@ -52,16 +52,19 @@
 <body style="background-image: url('coffee-background.jpg');">
 
   <?php include('navfixed.php'); ?>
-  <div class="container">
+  <div class="container" margin-top:50px">
     <div class="col-lg-12">
       <center>
-        <h1 class="page-header">Pending Orders</h1>
+        <h1 class="page-header" style="color: white">Pending Orders</h1>
       </center>
     </div>
+  </div>
 
+  <div class="container" style="background-color:white; border-radius:10px">
 
-    <div class="row" style="background-color:white;">
-      <!-- 1st ROW -->
+    <!-- 1st ROW -->
+    <div class="row" style="margin-top: 20px">
+
       <div class="col-lg-6">
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
@@ -133,8 +136,11 @@
         </table>
       </div>
     </div>
+    <!-- First Row End -->
 
+    <!-- 2nd ROW -->
     <div class="row" style="background-color:white;">
+
       <div class="col-lg-6">
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
@@ -170,7 +176,6 @@
           </tbody>
         </table>
       </div>
-      <!-- 2nd ROW -->
       <div class="col-lg-6">
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
@@ -206,82 +211,87 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <!-- 2nd Row End -->
 
-      <div class="row">
-        <div class="col-lg-6">
-          <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-            <thead>
-              <tr>
-                <th> Table 5 </th>
-                <th> Orders </th>
-                <th> Quantity </th>
-                <th> Status </th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $id = 'RS-30325022';
-              include('connect.php');
-              $result = $db->prepare("SELECT * FROM sales_order WHERE table_number = '5' AND order_status = 'pending'");
-              $result->bindParam(':userid', $id);
-              $result->execute();
-              for ($i = 0; $row = $result->fetch(); $i++) {
-              ?>
-                <tr class="record">
-                  <td></td>
-                  <td><?php echo $row['name']; ?></td>
-                  <td><?php echo $row['qty']; ?></td>
-                  <td>
-                    <div class="col-lg-2">
-                      <a onClick="javascript: return confirm('Serve order?');" class="btn btn-success" href="getinvoiceid.php?t_id=<?php echo $row['transaction_id']; ?>">Done</a>
-                    </div>
-                  </td>
-                </tr>
-              <?php
-              }
-              ?>
-            </tbody>
-          </table>
-        </div>
-        <div class="col-lg-6">
-          <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-            <thead>
-              <tr>
-                <th> Table 6 </th>
-                <th> Orders </th>
-                <th> Quantity </th>
-                <th> Status </th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-              $id = 'RS-30325022';
-              include('connect.php');
-              $result = $db->prepare("SELECT * FROM sales_order WHERE table_number = '6' AND order_status = 'pending'");
-              $result->bindParam(':userid', $id);
-              $result->execute();
-              for ($i = 0; $row = $result->fetch(); $i++) {
-              ?>
-                <tr class="record">
-                  <td></td>
-                  <td><?php echo $row['name']; ?></td>
-                  <td><?php echo $row['qty']; ?></td>
-                  <td>
-                    <div class="col-lg-2">
-                      <a onClick="javascript: return confirm('Serve order?');" class="btn btn-success" href="getinvoiceid.php?t_id=<?php echo $row['transaction_id']; ?>">Done</a>
-                    </div>
-                  </td>
-                </tr>
-              <?php
-              }
-              ?>
-            </tbody>
-          </table>
-        </div>
+    <!-- 3rd ROW -->
+    <div class="row" style="background-color:white;">
 
+      <div class="col-lg-6">
+        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+          <thead>
+            <tr>
+              <th> Table 5 </th>
+              <th> Orders </th>
+              <th> Quantity </th>
+              <th> Status </th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $id = 'RS-30325022';
+            include('connect.php');
+            $result = $db->prepare("SELECT * FROM sales_order WHERE table_number = '5' AND order_status = 'pending'");
+            $result->bindParam(':userid', $id);
+            $result->execute();
+            for ($i = 0; $row = $result->fetch(); $i++) {
+            ?>
+              <tr class="record">
+                <td></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['qty']; ?></td>
+                <td>
+                  <div class="col-lg-12">
+                    <a onClick="javascript: return confirm('Serve order?');" class="btn btn-success" href="getinvoiceid.php?t_id=<?php echo $row['transaction_id']; ?>">Done</a>
+                  </div>
+                </td>
+              </tr>
+            <?php
+            }
+            ?>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-lg-6">
+        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+          <thead>
+            <tr>
+              <th> Table 6 </th>
+              <th> Orders </th>
+              <th> Quantity </th>
+              <th> Status </th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $id = 'RS-30325022';
+            include('connect.php');
+            $result = $db->prepare("SELECT * FROM sales_order WHERE table_number = '6' AND order_status = 'pending'");
+            $result->bindParam(':userid', $id);
+            $result->execute();
+            for ($i = 0; $row = $result->fetch(); $i++) {
+            ?>
+              <tr class="record">
+                <td></td>
+                <td><?php echo $row['name']; ?></td>
+                <td><?php echo $row['qty']; ?></td>
+                <td>
+                  <div class="col-lg-12">
+                    <a onClick="javascript: return confirm('Serve order?');" class="btn btn-success" href="getinvoiceid.php?t_id=<?php echo $row['transaction_id']; ?>">Done</a>
+                  </div>
+                </td>
+              </tr>
+            <?php
+            }
+            ?>
+          </tbody>
+        </table>
       </div>
     </div>
+    <!-- 3rd Row End -->
+
   </div>
+
 
 
   <script src="js/jquery.js"></script>
