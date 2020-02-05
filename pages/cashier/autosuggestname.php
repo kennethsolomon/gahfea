@@ -1,5 +1,5 @@
 <?php
-   $db = new mysqli('localhost', 'root' ,'', 'inventory');
+   $db = new mysqli('localhost', 'root' ,'', 'inventory_gahfea');
 	if(!$db) {
 	
 		echo 'Could not connect to the database.';
