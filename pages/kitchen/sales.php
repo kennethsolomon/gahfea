@@ -55,7 +55,13 @@
   <div class="container" margin-top:50px">
     <div class="col-lg-12">
       <center>
-        <h1 class="page-header" style="color: white">Pending Orders</h1>
+        <img style="margin-top:20px" height="150px" width="150px" src="logo.jpg" alt="">
+      </center>
+    </div>
+
+    <div class="col-lg-12">
+      <center>
+        <h1 class="page-header" style="color: brown; background-color:wheat; font-weight:bold; width:300px">Pending Orders</h1>
       </center>
     </div>
   </div>

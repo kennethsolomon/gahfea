@@ -73,7 +73,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header" style="color:white">Cashier</h1>
+        <h1 class="page-header" style="color:white">Cashier<span> <img height="50px" width="50px" src="logo.jpg" alt=""></span></h1>
       </div>
       <div class="col-lg-8">
         <div id="maintable">
