@@ -67,11 +67,12 @@
       <div id="maintable">
         <div style="margin-top: -19px; margin-bottom: 21px;">
           <div class="col-sm-12">
-            <form action="getinvoiceid2.php" method="get" id="tableForm" name="tableForm" class="form-group">
+            <form id="tableForm" name="tableForm" class="form-group">
               <input type="hidden" name="invoice" class="form-control" value="<?php echo $_GET['invoice']; ?>" />
               <label style="color: white">Select a Category</label><br />
-              <select name="category" id="table_number" style="width:300px;" class="chzn-select" required onchange="tableForm.submit()">
-                <option></option>
+              <select name="category" id="table_number" style="width:300px;" class="chzn-select" required">
+                <option><?php echo $_GET['category'] ?></option>
+                <option disabled>====================</option>
                 <option>All Day Rice Meal</option>
                 <option>Appetizer</option>
                 <option>Bundle Meal</option>
@@ -83,37 +84,42 @@
           </div>
         </div>
         </form>
+
+
+
         <form action="incoming.php" method="post" class="form-group">
           <!-- <input type="hidden" name="pt" class = "form-control" value="<?php echo $_GET['id']; ?>" /> -->
           <input type="hidden" name="invoice" class="form-control" value="<?php echo $_GET['invoice']; ?>" />
           <div class="col-lg-4">
             <label style="color: white">Select a Product</label><br />
-            <select name="product" id="product" class="chzn-select" style="width: 280px;" required>
-              <option></option>
-              <?php
-              include('connect.php');
-              $category = $_GET['category'];
-              $result = $db->prepare("SELECT * FROM products WHERE category = '$category  '");
-              $result->bindParam(':userid', $res);
-              $result->execute();
-              for ($i = 0; $row = $result->fetch(); $i++) {
-              ?>
-                <option value="<?php echo $row['product_code']; ?>" <?php
-                                                                    if ($row['qty_left'] == 0) {
-                                                                      echo 'disabled';
-                                                                    }
-                                                                    ?>>
-                  <!-- <?php echo $row['product_code']; ?>- -->
-                  <?php echo $row['product_name']; ?>
-                  <!-- - <?php echo $row['description_name']; ?> -->
-                  - <?php echo $row['qty_left']; ?>
+            <div id="select_product">
+              <select name="product" id="product" class="chzn-select" style="width: 280px;" required>
+                <option></option>
+                <?php
+                include('connect.php');
+                $category = $_GET['category'];
+                $result = $db->prepare("SELECT * FROM products WHERE category = '$category  '");
+                $result->bindParam(':userid', $res);
+                $result->execute();
+                for ($i = 0; $row = $result->fetch(); $i++) {
+                ?>
+                  <option value="<?php echo $row['product_code']; ?>" <?php
+                                                                      if ($row['qty_left'] == 0) {
+                                                                        echo 'disabled';
+                                                                      }
+                                                                      ?>>
+                    <!-- <?php echo $row['product_code']; ?>- -->
+                    <?php echo $row['product_name']; ?>
+                    <!-- - <?php echo $row['description_name']; ?> -->
+                    - <?php echo $row['qty_left']; ?>
 
-                </option>
+                  </option>
+                  }
+                <?php
                 }
-              <?php
-              }
-              ?>
-            </select>
+                ?>
+              </select>
+            </div>
           </div>
           <div class="col-lg-2">
             <label style="color: white">Table Number:</label>
@@ -158,6 +164,9 @@
             <input type="submit" class="btn btn-primary" value="Add Order" class="form-control" style="width: 123px;margin-top:5px" />
           </div>
         </form>
+
+
+
       </div>
 
 
@@ -364,6 +373,7 @@
 
   <link href="vendor/chosen.min.css" rel="stylesheet" media="screen">
   <script src="vendor/chosen.jquery.min.js"></script>
+
   <script>
     $(function() {
       $(".chzn-select").chosen();
@@ -371,6 +381,20 @@
     });
   </script>
 
+
+  <script>
+    $(document).ready(function() {
+      $(document).on('change', '#table_number', function() {
+        var table_number = $('#table_number').val();
+        $.ajax({
+          success: function(response) {
+            window.history.pushState("getinvoiceid2", "Title", "/gahfea/pages/attendant/sales.php?invoice=<?php echo $_GET['invoice']; ?>&category=" + table_number);
+            location.reload(true);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>
