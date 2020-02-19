@@ -60,11 +60,11 @@ require_once('auth.php');
 		<?php include('navfixed.php'); ?>
 
 
-		<div id="page-wrapper" style="background-image: url('coffee-background-admin.jpg');">
+		<div id="page-wrapper" style="background-image: url('coffee-background-admin.jpg');background-size:cover;">
 			<div class="row">
 				<div class="col-lg-12">
 					<!-- <img src="gahfea.png" alt="Smiley face" height="70" width="1050" style="text-align:right; margin-top:10px"> -->
-					<h3 class="page-header" style="color:white">Welcome:<strong> <?php echo $session_admin_name; ?></strong></h3>
+					<h3 class="page-header" style="color:white">Welcome:<strong> <?php echo $session_admin_name; ?></strong><span> <img height="40px" width="40px" src="logo.jpg" alt=""></span></h3>
 				</div>
 
 				<!-- /.col-lg-12 -->

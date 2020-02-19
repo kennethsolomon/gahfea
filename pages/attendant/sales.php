@@ -57,7 +57,7 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
-        <h1 class="page-header" style="color:white">Front Attendant</h1>
+        <h1 class="page-header" style="color:white">Front Attendant<span> <img height="50px" width="50px" src="logo.jpg" alt=""></span></h1>
       </div>
     </div>
   </div>
@@ -71,7 +71,10 @@
               <input type="hidden" name="invoice" class="form-control" value="<?php echo $_GET['invoice']; ?>" />
               <label style="color: white">Select a Category</label><br />
               <select name="category" id="table_number" style="width:300px;" class="chzn-select" required">
-                <option><?php echo $_GET['category'] ?></option>
+                <option><?php
+                        if ($_GET['category']) {
+                          echo $_GET['category'];
+                        } ?></option>
                 <option disabled>====================</option>
                 <option>All Day Rice Meal</option>
                 <option>Appetizer</option>
@@ -284,7 +287,7 @@
     <form action="" method="post" class="form-group">
       <div class="row" style="margin-top:20px">
         <div class="col-lg-12">
-          <input name="list_order_button" type="submit" style="margin-bottom:10px" class="btn btn-primary" value="Order Pending List" class="form-control" />
+          <input name="list_order_button" type="submit" style="margin-bottom:10px" class="btn btn-primary" value="Order List" class="form-control" />
         </div>
       </div>
       <div class="row">
@@ -294,7 +297,6 @@
             <thead>
               <tr>
                 <th> Table Number </th>
-                <th> Invoice Number </th>
                 <th> Brand Name </th>
                 <th> Description Name </th>
                 <th> Category </th>
@@ -315,7 +317,6 @@
               ?>
                   <tr class="record">
                     <td><?php echo $row['table_number']; ?></td>
-                    <td><?php echo $row['invoice']; ?></td>
                     <td><?php echo $row['name']; ?></td>
                     <td><?php echo $row['dname']; ?></td>
                     <td><?php echo $row['category']; ?></td>

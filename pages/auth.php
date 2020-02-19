@@ -45,7 +45,7 @@
 		$row = $query->fetch();
 	
 		$session_attendant_name = $row['name'];
-		header("location: attendant/sales.php?id=cash&invoice=$finalcode");
+		header("location: attendant/sales.php?id=cash&invoice=$finalcode&category=");
 
 	} else if ($session_position == 'Kitchen'){
 
@@ -72,4 +72,3 @@
 	
 		$session_admin_name = $row['name'];
 	}
-?>

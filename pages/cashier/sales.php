@@ -49,7 +49,7 @@
 
 </head>
 
-<body style="background-image: url('../coffee-background.jpg');">
+<body style="background-image: url('../coffee-background.jpg');background-size:cover;">
 
   <?php include('navfixed.php');
   function formatMoney($number, $fractional = false)
@@ -83,7 +83,11 @@
             <input type="hidden" name="invoice" class="form-control" value="" />
             <label style="color:white">Select a Table Number</label><br />
             <select name="table_number" id="table_number" style="width:500px;" class="chzn-select" required onchange="tableForm.submit()">
-              <option></option>
+              <option><?php
+                      if ($_GET['table_number']) {
+                        echo $_GET['table_number'];
+                      } ?></option>
+              <option disabled>====================</option>
               <option>1</option>
               <option>2</option>
               <option>3</option>
@@ -269,7 +273,19 @@
 
     });
   </script>
-
+  <script>
+    $(document).ready(function() {
+      $(document).on('change', '#table_number', function() {
+        var table_number = $('#table_number').val();
+        $.ajax({
+          success: function(response) {
+            window.history.pushState("getinvoiceid", "Title", "/gahfea/pages/cashier/sales.php?invoice=<?php echo $_GET['invoice']; ?>&table_number=" + table_number);
+            location.reload(true);
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

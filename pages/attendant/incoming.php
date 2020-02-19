@@ -95,11 +95,8 @@ if(empty($order_list)){
     $sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,discount,category,date,omonth,oyear,qtyleft,dname,vat,total_amount,table_number,order_status) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k,:l,:m,:n,:o,:p,'pending')";
     $q = $db->prepare($sql);
     $q->execute(array(':a'=>strchr($order_list, "RS"),':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':g'=>$discount,':h'=>$categ,':i'=>$date,':j'=>$month,':k'=>$year,':l'=>$z,':m'=>$dname,':n'=>$vat,':o'=>$total,':p'=>$currentTable));
-    $url="sales.php?id=cash&invoice=$a";
+    $url="sales.php?id=cash&invoice=$a&category=";
     $url=str_replace(PHP_EOL, '', $url);
     header("Location: $url");
     // header("location: sales.php?id=$w&invoice=$a");
 }
-
-
-?>

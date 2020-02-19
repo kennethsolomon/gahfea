@@ -49,7 +49,7 @@
 
 </head>
 
-<body style="background-image: url('coffee-background.jpg');">
+<body style="background-image: url('coffee-background.jpg');background-size:cover;">
 
   <?php include('navfixed.php'); ?>
   <div class="container" margin-top:50px">

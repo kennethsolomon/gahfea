@@ -4,7 +4,7 @@
 	$a = $_POST['username'];
 	$b = $_POST['password'];
 
-	$sql = "SELECT * FROM attendant WHERE username = ? AND password = ?";
+	$sql = "SELECT * FROM user WHERE username = ? AND password = ?";
 	$query = $db->prepare($sql);
 	$query->execute(array($a,$b));
 	$row = $query->fetch();
@@ -16,5 +16,3 @@
 	}else{
 		echo 0;
 	}
-
-?>
