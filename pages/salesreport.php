@@ -13,7 +13,7 @@ require_once('auth.php');
     <meta name="author" content="">
 
     <title>GAHFEA</title>
-    
+
     <link rel="shortcut icon" href="logo.jpg">
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -39,7 +39,7 @@ require_once('auth.php');
 
     <link rel="stylesheet" type="text/css" href="tcal.css" />
     <script type="text/javascript" src="tcal.js"></script>
-    
+
 
     <link href="src/facebox.css" media="screen" rel="stylesheet" type="text/css" />
     <script src="lib/jquery.js" type="text/javascript"></script>
@@ -47,8 +47,8 @@ require_once('auth.php');
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $('a[rel*=facebox]').facebox({
-                loadingImage : 'src/loading.gif',
-                closeImage   : 'src/closelabel.png'
+                loadingImage: 'src/loading.gif',
+                closeImage: 'src/closelabel.png'
             })
         })
     </script>
@@ -60,14 +60,14 @@ require_once('auth.php');
 <body>
 
 
-    <?php include('navfixed.php');?>    
+    <?php include('navfixed.php'); ?>
 
     <!-- Page Content -->
     <div id="page-wrapper">
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-12">
-                <img src="gahfea.png" alt="Smiley face" height="70" width="1050" style="text-align:right; margin-top:10px">
+                    <img src="gahfea.png" alt="Smiley face" height="70" width="1050" style="text-align:right; margin-top:10px">
                     <h1 class="page-header"> Sales Report</h1>
                 </div>
                 <div id="maintable">
@@ -75,93 +75,191 @@ require_once('auth.php');
                     </div>
 
                     <label style="font-size:20px; margin-right: 2px">Search </label>
-                <form method="post" action="">
-                      <label>
-                      <select name = "cmonth" class="form-control input-sm">
-                        <option value=""></option>
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
-                        
-                      </select>
-                      </label>
-                    <label><input name="cyear" id="cyear" type="number" class="form-control input-sm" placeholder="" aria-controls="dataTables-example" style="width: 100px;"></label>
-                   <!-- <label><input type="button" value="Search" class="form-control" placeholder="" aria-controls="dataTables-example"></label> -->
-                   <label><button class="form-control"  name="submitdate" >Submit</button></label>
-                   <label style="margin-left:495px">
-                   <input style="width: 100px; "name="dailydate" id="dailydate" class="datepicker" placeholder="mm/dd/yyyy" data-date-format="mm/dd/yyyy">
-                   <!-- <input id="dailydate" name="dailydate" type="text" placeholder="Due Date" style="width: 150px; margin-bottom: 15px; margin-left: 170px"  /> -->
-                   </label>
-                   <label><button class="form-control"  name="accountduedate" >Daily Reports</button></label>
-                    </div>
+                    <form method="post" action="">
+                        <label>
+                            <select name="cmonth" class="form-control input-sm">
+                                <option value=""></option>
+                                <option value="January">January</option>
+                                <option value="February">February</option>
+                                <option value="March">March</option>
+                                <option value="April">April</option>
+                                <option value="May">May</option>
+                                <option value="June">June</option>
+                                <option value="July">July</option>
+                                <option value="August">August</option>
+                                <option value="September">September</option>
+                                <option value="October">October</option>
+                                <option value="November">November</option>
+                                <option value="December">December</option>
+
+                            </select>
+                        </label>
+                        <label><input name="cyear" id="cyear" type="number" class="form-control input-sm" placeholder="" aria-controls="dataTables-example" style="width: 100px;"></label>
+                        <label><button class="form-control" name="submitdate">Submit</button></label>
+                        <label style="margin-left:200px">
+                            <input style="width: 100px; " name="dailydate" id="dailydate" class="datepicker" placeholder="mm/dd/yyyy" data-date-format="mm/dd/yyyy">
+                        </label>
+                        <label><button class="form-control" name="accountduedate">Daily Reports</button></label>
+                </div>
                 </form>
 
-                    <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                        <thead>
-                            <tr>
-                                <th > Transaction ID </th>
-                                <th > Date </th>
-                                <th > Customer Name </th>
-                                <th > Invoice Number </th>
-                                <th > Type of Payment </th>
-                                <th > Total Sales </th>
-                                <th > Balance </th>
-                                <th > Action </th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                <form action="" method="post" style="margin-top:-55px; margin-left:900px;">
+                    <label> Month:
+                        <select name="wmonth" class="form-control input-sm" required>
+                            <option value=""></option>
+                            <option value="January">January</option>
+                            <option value="February">February</option>
+                            <option value="March">March</option>
+                            <option value="April">April</option>
+                            <option value="May">May</option>
+                            <option value="June">June</option>
+                            <option value="July">July</option>
+                            <option value="August">August</option>
+                            <option value="September">September</option>
+                            <option value="October">October</option>
+                            <option value="November">November</option>
+                            <option value="December">December</option>
+                        </select>
 
-                            <?php
-                            if(isset($_POST["submitdate"]))
+                    </label>
+                    <label>First Date:<input name="wfrom" id="wfrom" type="number" class="form-control input-sm" placeholder="" aria-controls="dataTables-example" style="width: 100px;" required></label>
+                    <label>Second Date:<input name="wto" id="wto" type="number" class="form-control input-sm" placeholder="" aria-controls="dataTables-example" style="width: 100px;" required></label>
+                    <label>Year :<input name="wyear" id="wyear" type="number" class="form-control input-sm" placeholder="" aria-controls="dataTables-example" style="width: 100px;" required></label>
+                    <label><button class="form-control" name="weeklyReportsBtn">Weekly Reports</button></label>
+                </form>
+
+
+                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                    <thead>
+                        <tr>
+                            <th> Transaction ID </th>
+                            <th> Date </th>
+                            <th> Customer Name </th>
+                            <th> Invoice Number </th>
+                            <th> Type of Payment </th>
+                            <th> Total Sales </th>
+                            <!-- <th> Balance </th> -->
+                            <th> Action </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <?php
+                        if (isset($_POST["weeklyReportsBtn"])) {
+                            function formatMoney($number, $fractional = false)
                             {
-                                function formatMoney($number, $fractional=false) {
-                                    if ($fractional) {
-                                        $number = sprintf('%.2f', $number);
-                                    }
-                                    while (true) {
-                                        $replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
-                                        if ($replaced != $number) {
-                                            $number = $replaced;
-                                        } else {
-                                            break;
-                                        }
-                                    }
-                                    return $number;
+                                if ($fractional) {
+                                    $number = sprintf('%.2f', $number);
                                 }
+                                while (true) {
+                                    $replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
+                                    if ($replaced != $number) {
+                                        $number = $replaced;
+                                    } else {
+                                        break;
+                                    }
+                                }
+                                return $number;
+                            }
 
-                                include('connect.php');
-                                $cmonth=$_POST["cmonth"];
-                                $cyear=$_POST["cyear"];
-                                echo'<center><p style="font-size:32px;">';
-                                echo $cmonth.' '.$cyear;
-                                echo'</p></center>';
-                                if(!empty($cmonth) && !empty($cyear)){
-                                $result = $db->prepare("SELECT * FROM sales WHERE month = '$cmonth' AND year = '$cyear' ORDER BY transaction_id");
-                                $result->execute();
-                                for($i=0; $row = $result->fetch(); $i++){
-                                    ?>
+                            include('connect.php');
+                            $wmonth = $_POST["wmonth"];
+                            $wfrom = $_POST["wfrom"];
+                            $wto = $_POST["wto"];
+                            $wyear = $_POST["wyear"];
+
+                            echo '<center><p style="font-size:32px;">';
+                            echo $wmonth . ' ' . $wfrom . ' - ' . $wto . ' ' . $wyear;
+                            echo '</p></center>';
+
+                            $result = $db->prepare("SELECT * FROM sales WHERE month = '$wmonth' AND year = '$wyear' ORDER BY transaction_id");
+                            $result->execute();
+                            for ($i = 0; $row = $result->fetch(); $i++) {
+                                $getDate = $row["date"];
+                                $date = substr($getDate, 3, 2);
+
+                                if ($date >= $wfrom && $date <= $wto) {
+
+
+                        ?>
                                     <tr class="record">
-                                        <td>STI-000<?php echo $row['transaction_id']; ?></td>
+                                        <td>TID-000<?php echo $row['transaction_id']; ?></td>
                                         <td><?php echo $row['date']; ?></td>
                                         <td><?php echo $row['name']; ?></td>
                                         <td><?php echo $row['invoice_number']; ?></td>
                                         <td><?php echo $row['type']; ?></td>
                                         <td><?php
-                                            $dsdsd=$row['amount'];
+                                            $dsdsd = $row['amount'];
+                                            echo formatMoney($dsdsd, true);
+                                            ?>
+                                        </td>
+                                        <!-- <td><?php
+                                                    $d = $row['balance'];
+                                                    echo formatMoney($d, true);
+                                                    ?>
+                                        </td> -->
+                                        <td>
+                                            <a href="#" id="<?php echo $row['transaction_id']; ?>" class="btn btn-danger delbutton" title="Click To Delete">
+                                                <span><i class="fa fa-trash"></i></span>
+                                            </a>
+                                            &nbsp;
+                                            <a class="btn btn-primary" href="salesprint.php?id=<?php echo $row['invoice_number']; ?>">
+                                                <span><i class="fa fa-print"></i></span>
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                        <?php
+                                }
+                            }
+                        }
+
+
+                        ?>
+
+
+                        <?php
+                        if (isset($_POST["submitdate"])) {
+                            function formatMoney($number, $fractional = false)
+                            {
+                                if ($fractional) {
+                                    $number = sprintf('%.2f', $number);
+                                }
+                                while (true) {
+                                    $replaced = preg_replace('/(-?\d+)(\d\d\d)/', '$1,$2', $number);
+                                    if ($replaced != $number) {
+                                        $number = $replaced;
+                                    } else {
+                                        break;
+                                    }
+                                }
+                                return $number;
+                            }
+
+                            include('connect.php');
+                            $cmonth = $_POST["cmonth"];
+                            $cyear = $_POST["cyear"];
+                            echo '<center><p style="font-size:32px;">';
+                            echo $cmonth . ' ' . $cyear;
+                            echo '</p></center>';
+                            if (!empty($cmonth) && !empty($cyear)) {
+                                $result = $db->prepare("SELECT * FROM sales WHERE month = '$cmonth' AND year = '$cyear' ORDER BY transaction_id");
+                                $result->execute();
+                                for ($i = 0; $row = $result->fetch(); $i++) {
+                        ?>
+                                    <tr class="record">
+                                        <td>TID-000<?php echo $row['transaction_id']; ?></td>
+                                        <td><?php echo $row['date']; ?></td>
+                                        <td><?php echo $row['name']; ?></td>
+                                        <td><?php echo $row['invoice_number']; ?></td>
+                                        <td><?php echo $row['type']; ?></td>
+                                        <td><?php
+                                            $dsdsd = $row['amount'];
                                             echo formatMoney($dsdsd, true);
                                             ?>
                                         </td>
                                         <td><?php
-                                            $d=$row['balance'];
+                                            $d = $row['balance'];
                                             echo formatMoney($d, true);
                                             ?>
                                         </td>
@@ -172,249 +270,270 @@ require_once('auth.php');
                                             &nbsp;
                                             <a class="btn btn-primary" href="salesprint.php?id=<?php echo $row['invoice_number']; ?>">
                                                 <span><i class="fa fa-print"></i></span>
-                                                
+
                                             </a>
                                         </td>
                                     </tr>
-                                    <?php
-                                    }
-                                  } else if (!empty($cmonth)){
-                                    $result = $db->prepare("SELECT * FROM sales WHERE month = '$cmonth' ORDER BY transaction_id");
-                                    $result->execute();
-                                    for($i=0; $row = $result->fetch(); $i++){
-                                        ?>
-                                        <tr class="record">
-                                            <td>STI-000<?php echo $row['transaction_id']; ?></td>
-                                            <td><?php echo $row['date']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['invoice_number']; ?></td>
-                                            <td><?php echo $row['type']; ?></td>
-                                            <td><?php
-                                                $dsdsd=$row['amount'];
-                                                echo formatMoney($dsdsd, true);
-                                                ?>
-                                            </td>
-                                            <td><?php
-                                                $d=$row['balance'];
-                                                echo formatMoney($d, true);
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <a href="#" id="<?php echo $row['transaction_id']; ?>" class="btn btn-danger delbutton" title="Click To Delete">
-                                                    <span><i class="fa fa-trash"></i></span>
-                                                </a>
-                                                &nbsp;
-                                                <a class="btn btn-primary" href="salesprint.php?id=<?php echo $row['invoice_number']; ?>">
-                                                    <span><i class="fa fa-print"></i></span>
-                                                    
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        }
-                                 } else if (!empty($cyear)){
-                                    $result = $db->prepare("SELECT * FROM sales WHERE year = '$cyear' ORDER BY transaction_id");
-                                    $result->execute();
-                                    for($i=0; $row = $result->fetch(); $i++){
-                                        ?>
-                                        <tr class="record">
-                                            <td>STI-000<?php echo $row['transaction_id']; ?></td>
-                                            <td><?php echo $row['date']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['invoice_number']; ?></td>
-                                            <td><?php echo $row['type']; ?></td>
-                                            <td><?php
-                                                $dsdsd=$row['amount'];
-                                                echo formatMoney($dsdsd, true);
-                                                ?>
-                                            </td>
-                                            <td><?php
-                                                $d=$row['balance'];
-                                                echo formatMoney($d, true);
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <a href="#" id="<?php echo $row['transaction_id']; ?>" class="btn btn-danger delbutton" title="Click To Delete">
-                                                    <span><i class="fa fa-trash"></i></span>
-                                                </a>
-                                                &nbsp;
-                                                <a class="btn btn-primary" href="salesprint.php?id=<?php echo $row['invoice_number']; ?>">
-                                                    <span><i class="fa fa-print"></i></span>
-                                                    
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        }
-                                 } else if (empty($cmonth) && empty($cyear)){
-                                    $result = $db->prepare("SELECT * FROM sales ORDER BY transaction_id");
-                                    $result->execute();
-                                    for($i=0; $row = $result->fetch(); $i++){
-                                        ?>
-                                        <tr class="record">
-                                            <td>STI-000<?php echo $row['transaction_id']; ?></td>
-                                            <td><?php echo $row['date']; ?></td>
-                                            <td><?php echo $row['name']; ?></td>
-                                            <td><?php echo $row['invoice_number']; ?></td>
-                                            <td><?php echo $row['type']; ?></td>
-                                            <td><?php
-                                                $dsdsd=$row['amount'];
-                                                echo formatMoney($dsdsd, true);
-                                                ?>
-                                            </td>
-                                            <td><?php
-                                                $d=$row['balance'];
-                                                echo formatMoney($d, true);
-                                                ?>
-                                            </td>
-                                            <td>
-                                                <a href="#" id="<?php echo $row['transaction_id']; ?>" class="btn btn-danger delbutton" title="Click To Delete">
-                                                    <span><i class="fa fa-trash"></i></span>
-                                                </a>
-                                                &nbsp;
-                                                <a class="btn btn-primary" href="salesprint.php?id=<?php echo $row['invoice_number']; ?>">
-                                                    <span><i class="fa fa-print"></i></span>
-                                                    
-                                                </a>
-                                            </td>
-                                        </tr>
-                                        <?php
-                                        }
-                                 }
+                                <?php
+                                }
+                            } else if (!empty($cmonth)) {
+                                $result = $db->prepare("SELECT * FROM sales WHERE month = '$cmonth' ORDER BY transaction_id");
+                                $result->execute();
+                                for ($i = 0; $row = $result->fetch(); $i++) {
+                                ?>
+                                    <tr class="record">
+                                        <td>TID-000<?php echo $row['transaction_id']; ?></td>
+                                        <td><?php echo $row['date']; ?></td>
+                                        <td><?php echo $row['name']; ?></td>
+                                        <td><?php echo $row['invoice_number']; ?></td>
+                                        <td><?php echo $row['type']; ?></td>
+                                        <td><?php
+                                            $dsdsd = $row['amount'];
+                                            echo formatMoney($dsdsd, true);
+                                            ?>
+                                        </td>
+                                        <td><?php
+                                            $d = $row['balance'];
+                                            echo formatMoney($d, true);
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <a href="#" id="<?php echo $row['transaction_id']; ?>" class="btn btn-danger delbutton" title="Click To Delete">
+                                                <span><i class="fa fa-trash"></i></span>
+                                            </a>
+                                            &nbsp;
+                                            <a class="btn btn-primary" href="salesprint.php?id=<?php echo $row['invoice_number']; ?>">
+                                                <span><i class="fa fa-print"></i></span>
 
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                            } else if (!empty($cyear)) {
+                                $result = $db->prepare("SELECT * FROM sales WHERE year = '$cyear' ORDER BY transaction_id");
+                                $result->execute();
+                                for ($i = 0; $row = $result->fetch(); $i++) {
+                                ?>
+                                    <tr class="record">
+                                        <td>TID-000<?php echo $row['transaction_id']; ?></td>
+                                        <td><?php echo $row['date']; ?></td>
+                                        <td><?php echo $row['name']; ?></td>
+                                        <td><?php echo $row['invoice_number']; ?></td>
+                                        <td><?php echo $row['type']; ?></td>
+                                        <td><?php
+                                            $dsdsd = $row['amount'];
+                                            echo formatMoney($dsdsd, true);
+                                            ?>
+                                        </td>
+                                        <td><?php
+                                            $d = $row['balance'];
+                                            echo formatMoney($d, true);
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <a href="#" id="<?php echo $row['transaction_id']; ?>" class="btn btn-danger delbutton" title="Click To Delete">
+                                                <span><i class="fa fa-trash"></i></span>
+                                            </a>
+                                            &nbsp;
+                                            <a class="btn btn-primary" href="salesprint.php?id=<?php echo $row['invoice_number']; ?>">
+                                                <span><i class="fa fa-print"></i></span>
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php
+                                }
+                            } else if (empty($cmonth) && empty($cyear)) {
+                                $result = $db->prepare("SELECT * FROM sales ORDER BY transaction_id");
+                                $result->execute();
+                                for ($i = 0; $row = $result->fetch(); $i++) {
+                                ?>
+                                    <tr class="record">
+                                        <td>TID-000<?php echo $row['transaction_id']; ?></td>
+                                        <td><?php echo $row['date']; ?></td>
+                                        <td><?php echo $row['name']; ?></td>
+                                        <td><?php echo $row['invoice_number']; ?></td>
+                                        <td><?php echo $row['type']; ?></td>
+                                        <td><?php
+                                            $dsdsd = $row['amount'];
+                                            echo formatMoney($dsdsd, true);
+                                            ?>
+                                        </td>
+                                        <td><?php
+                                            $d = $row['balance'];
+                                            echo formatMoney($d, true);
+                                            ?>
+                                        </td>
+                                        <td>
+                                            <a href="#" id="<?php echo $row['transaction_id']; ?>" class="btn btn-danger delbutton" title="Click To Delete">
+                                                <span><i class="fa fa-trash"></i></span>
+                                            </a>
+                                            &nbsp;
+                                            <a class="btn btn-primary" href="salesprint.php?id=<?php echo $row['invoice_number']; ?>">
+                                                <span><i class="fa fa-print"></i></span>
+
+                                            </a>
+                                        </td>
+                                    </tr>
+                        <?php
+                                }
                             }
-                            
-                            ?>
+                        }
 
-                        </tbody>
-                        <thead>
-                            <tr>
-                                <th colspan="5" style="border-top:1px solid #999999"> Total Amount </th>
-                                <th colspan="4" style="border-top:1px solid #999999"> 
-                                    <?php
-                                    if(isset($_POST["submitdate"]))
-                                    {
-                                        $cmonth=$_POST["cmonth"];
-                                        $cyear=$_POST["cyear"];
-                                        if(!empty($cmonth) && !empty($cyear)){
-                                                $results = $db->prepare("SELECT sum(amount) FROM sales WHERE month = '$cmonth' AND year = '$cyear' ");
-                                                $results->execute();
-                                                for($i=0; $rows = $results->fetch(); $i++){
-                                                $dsdsd=$rows['sum(amount)'];
-                                                echo formatMoney($dsdsd, true);
-                                           }
-                                        } else if(!empty($cmonth)){
-                                            $results = $db->prepare("SELECT sum(amount) FROM sales WHERE month = '$cmonth' ");
-                                                $results->execute();
-                                                for($i=0; $rows = $results->fetch(); $i++){
-                                                $dsdsd=$rows['sum(amount)'];
-                                                echo formatMoney($dsdsd, true);
-                                           }
-                                        } else if(!empty($cyear)){
-                                            $results = $db->prepare("SELECT sum(amount) FROM sales WHERE year = '$cyear' ");
-                                                $results->execute();
-                                                for($i=0; $rows = $results->fetch(); $i++){
-                                                $dsdsd=$rows['sum(amount)'];
-                                                echo formatMoney($dsdsd, true);
-                                           }
-                                        } else if(empty($cmonth) && empty($cyear)){
-                                            $results = $db->prepare("SELECT sum(amount) FROM sales");
-                                            $results->execute();
-                                            for($i=0; $rows = $results->fetch(); $i++){
-                                            $dsdsd=$rows['sum(amount)'];
+                        ?>
+
+                    </tbody>
+                    <thead>
+                        <tr>
+                            <th colspan="5" style="border-top:1px solid #999999"> Total Amount </th>
+                            <th colspan="4" style="border-top:1px solid #999999">
+                                <?php
+                                if (isset($_POST["submitdate"])) {
+                                    $cmonth = $_POST["cmonth"];
+                                    $cyear = $_POST["cyear"];
+                                    if (!empty($cmonth) && !empty($cyear)) {
+                                        $results = $db->prepare("SELECT sum(amount) FROM sales WHERE month = '$cmonth' AND year = '$cyear' ");
+                                        $results->execute();
+                                        for ($i = 0; $rows = $results->fetch(); $i++) {
+                                            $dsdsd = $rows['sum(amount)'];
                                             echo formatMoney($dsdsd, true);
-                                       }
-                                    }
-                                    }
-                                    
-                                    ?>
-                                </th>
-                            </tr>
-                        </thead>
-                        <thead>
-                            <tr>
-                            <th colspan="5" style="border-top:1px solid #999999" >Total balance </th>
-                                  <th colspan="4" style="border-top:1px solid #999999"> 
-                                     <?php
-
-                                    if(isset($_POST["submitdate"]))
-                                    {
-                                        $cmonth=$_POST["cmonth"];
-                                        $cyear=$_POST["cyear"];
-                                        if(!empty($cmonth) && !empty($cyear)){
-                                                $results = $db->prepare("SELECT sum(balance) FROM sales WHERE month = '$cmonth' AND year = '$cyear' ");
-                                                $results->execute();
-                                                for($i=0; $rows = $results->fetch(); $i++){
-                                                $dsdsd=$rows['sum(balance)'];
-                                                echo formatMoney($dsdsd, true);
-                                           }
-                                        } else if(!empty($cmonth)){
-                                            $results = $db->prepare("SELECT sum(balance) FROM sales WHERE month = '$cmonth' ");
-                                                $results->execute();
-                                                for($i=0; $rows = $results->fetch(); $i++){
-                                                $dsdsd=$rows['sum(balance)'];
-                                                echo formatMoney($dsdsd, true);
-                                           }
-                                        } else if(!empty($cyear)){
-                                            $results = $db->prepare("SELECT sum(balance) FROM sales WHERE year = '$cyear' ");
-                                                $results->execute();
-                                                for($i=0; $rows = $results->fetch(); $i++){
-                                                $dsdsd=$rows['sum(balance)'];
-                                                echo formatMoney($dsdsd, true);
-                                           }
-                                        } else if(empty($cmonth) && empty($cyear)){
-                                            $results = $db->prepare("SELECT sum(balance) FROM sales");
-                                            $results->execute();
-                                            for($i=0; $rows = $results->fetch(); $i++){
-                                            $dsdsd=$rows['sum(balance)'];
+                                        }
+                                    } else if (!empty($cmonth)) {
+                                        $results = $db->prepare("SELECT sum(amount) FROM sales WHERE month = '$cmonth' ");
+                                        $results->execute();
+                                        for ($i = 0; $rows = $results->fetch(); $i++) {
+                                            $dsdsd = $rows['sum(amount)'];
                                             echo formatMoney($dsdsd, true);
-                                       }
+                                        }
+                                    } else if (!empty($cyear)) {
+                                        $results = $db->prepare("SELECT sum(amount) FROM sales WHERE year = '$cyear' ");
+                                        $results->execute();
+                                        for ($i = 0; $rows = $results->fetch(); $i++) {
+                                            $dsdsd = $rows['sum(amount)'];
+                                            echo formatMoney($dsdsd, true);
+                                        }
+                                    } else if (empty($cmonth) && empty($cyear)) {
+                                        $results = $db->prepare("SELECT sum(amount) FROM sales");
+                                        $results->execute();
+                                        for ($i = 0; $rows = $results->fetch(); $i++) {
+                                            $dsdsd = $rows['sum(amount)'];
+                                            echo formatMoney($dsdsd, true);
+                                        }
                                     }
-                                    }
-                                  ?>
-                                </th>
-                            </tr>
-                        </thead>   
-                    </table>
+                                }
 
-                   
+                                if (isset($_POST["weeklyReportsBtn"])) {
+
+                                    include('connect.php');
+                                    $wmonth = $_POST["wmonth"];
+                                    $wfrom = $_POST["wfrom"];
+                                    $wto = $_POST["wto"];
+                                    $wyear = $_POST["wyear"];
+
+                                    $result = $db->prepare("SELECT sum(amount), date, month, year FROM sales WHERE month = '$wmonth' AND year = '$wyear' ");
+                                    $result->execute();
+                                    for ($i = 0; $rows = $result->fetch(); $i++) {
+                                        $getDate = $rows['date'];
+                                        $date = substr($getDate, 3, 2);
+
+                                        if ($date >= $wfrom && $date <= $wto) {
+                                            $dsdsd = $rows['sum(amount)'];
+                                            echo formatMoney($dsdsd, true);
+                                        }
+                                    }
+                                }
+
+                                ?>
+                            </th>
+                        </tr>
+                    </thead>
+                    <!-- <thead>
+                        <tr>
+                            <th colspan="5" style="border-top:1px solid #999999">Total balance </th>
+                            <th colspan="4" style="border-top:1px solid #999999">
+                                <?php
+
+                                if (isset($_POST["submitdate"])) {
+                                    $cmonth = $_POST["cmonth"];
+                                    $cyear = $_POST["cyear"];
+                                    if (!empty($cmonth) && !empty($cyear)) {
+                                        $results = $db->prepare("SELECT sum(balance) FROM sales WHERE month = '$cmonth' AND year = '$cyear' ");
+                                        $results->execute();
+                                        for ($i = 0; $rows = $results->fetch(); $i++) {
+                                            $dsdsd = $rows['sum(balance)'];
+                                            echo formatMoney($dsdsd, true);
+                                        }
+                                    } else if (!empty($cmonth)) {
+                                        $results = $db->prepare("SELECT sum(balance) FROM sales WHERE month = '$cmonth' ");
+                                        $results->execute();
+                                        for ($i = 0; $rows = $results->fetch(); $i++) {
+                                            $dsdsd = $rows['sum(balance)'];
+                                            echo formatMoney($dsdsd, true);
+                                        }
+                                    } else if (!empty($cyear)) {
+                                        $results = $db->prepare("SELECT sum(balance) FROM sales WHERE year = '$cyear' ");
+                                        $results->execute();
+                                        for ($i = 0; $rows = $results->fetch(); $i++) {
+                                            $dsdsd = $rows['sum(balance)'];
+                                            echo formatMoney($dsdsd, true);
+                                        }
+                                    } else if (empty($cmonth) && empty($cyear)) {
+                                        $results = $db->prepare("SELECT sum(balance) FROM sales");
+                                        $results->execute();
+                                        for ($i = 0; $rows = $results->fetch(); $i++) {
+                                            $dsdsd = $rows['sum(balance)'];
+                                            echo formatMoney($dsdsd, true);
+                                        }
+                                    }
+                                }
+                                ?>
+                            </th>
+                        </tr>
+                    </thead> -->
+                </table>
+
+
                 <a href="" onclick="window.print()" class="btn btn-primary"><i class="icon-print icon-large"></i> Print</a>
-                    <div class="clearfix"></div>
+                <div class="clearfix"></div>
             </div>
             <script src="js/jquery.js"></script>
             <script type="text/javascript">
                 $(function() {
 
 
-                    $(".delbutton").click(function(){
+                    $(".delbutton").click(function() {
 
-//Save the link in a variable called element
-var element = $(this);
+                        //Save the link in a variable called element
+                        var element = $(this);
 
-//Find the id of the link that was clicked
-var del_id = element.attr("id");
+                        //Find the id of the link that was clicked
+                        var del_id = element.attr("id");
 
-//Built a url to send
-var info = 'id=' + del_id;
-if(confirm("Sure you want to delete this update? There is NO undo!"))
-{
+                        //Built a url to send
+                        var info = 'id=' + del_id;
+                        if (confirm("Sure you want to delete this update? There is NO undo!")) {
 
- $.ajax({
-   type: "GET",
-   url: "deletesales.php",
-   data: info,
-   success: function(){
+                            $.ajax({
+                                type: "GET",
+                                url: "deletesales.php",
+                                data: info,
+                                success: function() {
 
-   }
-});
- $(this).parents(".record").animate({ backgroundColor: "#fbc7c7" }, "fast")
- .animate({ opacity: "hide" }, "slow");
+                                }
+                            });
+                            $(this).parents(".record").animate({
+                                    backgroundColor: "#fbc7c7"
+                                }, "fast")
+                                .animate({
+                                    opacity: "hide"
+                                }, "slow");
 
-}
+                        }
 
-return false;
+                        return false;
 
-});
+                    });
 
                 });
             </script>
@@ -423,36 +542,36 @@ return false;
         <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
-</div>
-<!-- /#page-wrapper -->
+    </div>
+    <!-- /#page-wrapper -->
 
 
-<!-- jQuery -->
-<script src="../vendor/jquery/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script src="../vendor/jquery/jquery.min.js"></script>
 
-<!-- Bootstrap Core JavaScript -->
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
-<!-- Metis Menu Plugin JavaScript -->
-<script src="../vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="../vendor/metisMenu/metisMenu.min.js"></script>
 
-<!-- Custom Theme JavaScript -->
-<script src="../dist/js/sb-admin-2.js"></script>
-<script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
-<script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
-<script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
-<!-- <script>
+    <!-- Custom Theme JavaScript -->
+    <script src="../dist/js/sb-admin-2.js"></script>
+    <script src="../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
+    <script src="../vendor/datatables-responsive/dataTables.responsive.js"></script>
+    <!-- <script>
     $(document).ready(function() {
         $('#dataTables-example').DataTable({
             responsive: true
         });
     });
 </script>-->
-<script>
-                // function print() {
-                //     window.print();
-                // }
-            </script>
+    <script>
+        // function print() {
+        //     window.print();
+        // }
+    </script>
 
 
 </body>
