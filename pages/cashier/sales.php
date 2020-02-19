@@ -280,7 +280,6 @@
         $.ajax({
           success: function(response) {
             window.history.pushState("getinvoiceid", "Title", "/gahfea/pages/cashier/sales.php?invoice=<?php echo $_GET['invoice']; ?>&table_number=" + table_number);
-            location.reload(true);
           }
         });
       });
