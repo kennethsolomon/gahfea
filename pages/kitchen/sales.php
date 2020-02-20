@@ -66,16 +66,18 @@
     </div>
   </div>
 
-  <div class="container" style="background-color:white; border-radius:10px">
+  <div class="container" style="background-color:white; border-radius:10px; margin-bottom:20px">
 
     <!-- 1st ROW -->
     <div class="row" style="margin-top: 20px">
 
-      <div class="col-lg-6">
+      <div class="col-lg-12">
+        <center>
+          <h3>Table 1</h3>
+        </center>
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
             <tr>
-              <th> Table 1 </th>
               <th> Orders </th>
               <th> Quantity </th>
               <th> Status </th>
@@ -91,7 +93,6 @@
             for ($i = 0; $row = $result->fetch(); $i++) {
             ?>
               <tr class="record">
-                <td></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['qty']; ?></td>
                 <td>
@@ -106,11 +107,13 @@
           </tbody>
         </table>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-12">
+        <center>
+          <h3>Table 2</h3>
+        </center>
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
             <tr>
-              <th> Table 2 </th>
               <th> Orders </th>
               <th> Quantity </th>
               <th> Status </th>
@@ -126,7 +129,6 @@
             for ($i = 0; $row = $result->fetch(); $i++) {
             ?>
               <tr class="record">
-                <td></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['qty']; ?></td>
                 <td>
@@ -147,11 +149,13 @@
     <!-- 2nd ROW -->
     <div class="row" style="background-color:white;">
 
-      <div class="col-lg-6">
+      <div class="col-lg-12">
+        <center>
+          <h3>Table 3</h3>
+        </center>
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
             <tr>
-              <th> Table 3 </th>
               <th> Orders </th>
               <th> Quantity </th>
               <th> Status </th>
@@ -167,7 +171,6 @@
             for ($i = 0; $row = $result->fetch(); $i++) {
             ?>
               <tr class="record">
-                <td></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['qty']; ?></td>
                 <td>
@@ -182,11 +185,13 @@
           </tbody>
         </table>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-12">
+        <center>
+          <h3>Table 4</h3>
+        </center>
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
             <tr>
-              <th> Table 4 </th>
               <th> Orders </th>
               <th> Quantity </th>
               <th> Status </th>
@@ -202,7 +207,6 @@
             for ($i = 0; $row = $result->fetch(); $i++) {
             ?>
               <tr class="record">
-                <td></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['qty']; ?></td>
                 <td>
@@ -223,11 +227,13 @@
     <!-- 3rd ROW -->
     <div class="row" style="background-color:white;">
 
-      <div class="col-lg-6">
+      <div class="col-lg-12">
+        <center>
+          <h3>Table 5</h3>
+        </center>
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
             <tr>
-              <th> Table 5 </th>
               <th> Orders </th>
               <th> Quantity </th>
               <th> Status </th>
@@ -243,7 +249,6 @@
             for ($i = 0; $row = $result->fetch(); $i++) {
             ?>
               <tr class="record">
-                <td></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['qty']; ?></td>
                 <td>
@@ -258,11 +263,13 @@
           </tbody>
         </table>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-12" style="margin-bottom:20px">
+        <center>
+          <h3>Table 6</h3>
+        </center>
         <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
           <thead>
             <tr>
-              <th> Table 6 </th>
               <th> Orders </th>
               <th> Quantity </th>
               <th> Status </th>
@@ -278,7 +285,6 @@
             for ($i = 0; $row = $result->fetch(); $i++) {
             ?>
               <tr class="record">
-                <td></td>
                 <td><?php echo $row['name']; ?></td>
                 <td><?php echo $row['qty']; ?></td>
                 <td>

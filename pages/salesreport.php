@@ -435,11 +435,16 @@ require_once('auth.php');
                                     $result->execute();
                                     for ($i = 0; $rows = $result->fetch(); $i++) {
                                         $getDate = $rows['date'];
+                                        $year = $rows['year'];
+                                        $month = $rows['month'];
                                         $date = substr($getDate, 3, 2);
 
-                                        if ($date >= $wfrom && $date <= $wto) {
+                                        if ($date >= $wfrom && $date <= $wto && $month == $wmonth && $year == $wyear) {
                                             $dsdsd += $rows['amount'];
                                             $rowammount = $rows['amount'];
+                                        } else {
+                                            $dsdsd = '';
+                                            $rowammount = '';
                                         }
                                     }
                                     echo formatMoney($dsdsd - $rowammount, true);

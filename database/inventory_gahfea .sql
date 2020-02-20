@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 04, 2020 at 02:01 PM
+-- Generation Time: Feb 20, 2020 at 12:34 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -167,7 +167,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `description_name`, `unit`, `cost`, `price`, `supplier`, `qty_left`, `category`, `date_delivered`, `expiration_date`) VALUES
-(1, 'P-6323323', 'Daing na bangus w/ egg salad and rice', 'Daing na bangus w/ egg salad and rice', 'Per Pieces', '400', '300', 'GAHFEA', 142, 'All Day Rice Meal', '2019-11-12', '2020-02-06');
+(1, 'P-6323323', 'Daing na bangus w/ egg salad and rice', 'Daing na bangus w/ egg salad and rice', 'Per Pieces', '400', '300', 'GAHFEA', 139, 'All Day Rice Meal', '2019-11-12', '2020-02-06');
 
 -- --------------------------------------------------------
 
@@ -195,7 +195,8 @@ CREATE TABLE `purchases` (
 INSERT INTO `purchases` (`transaction_id`, `invoice_number`, `date_order`, `suplier`, `date_deliver`, `p_name`, `qty`, `cost`, `status`, `remark`) VALUES
 (1, 'PO-22333252', '2019-12-14', 'GAHFEA', '2019-12-14', 'P-6323323', '20', '6000', 'Received', ' received'),
 (2, 'PO-77333226', '2019-12-14', 'GAHFEA', '2019-12-15', 'P-6323323', '100', '30000', 'Received', ' 100 orders'),
-(3, 'PO-334537', '2020-01-29', 'GAHFEA', '2020-01-29', 'P-6323323', '1', '300', 'Received', ' ');
+(3, 'PO-334537', '2020-01-29', 'GAHFEA', '2020-01-29', 'P-6323323', '1', '300', 'Received', ' '),
+(4, 'PO-63222', '2020-02-19', 'GAHFEA', '', 'P-6323323', '2', '600', 'pending', '');
 
 -- --------------------------------------------------------
 
@@ -220,7 +221,8 @@ CREATE TABLE `purchases_item` (
 INSERT INTO `purchases_item` (`id`, `name`, `qty`, `cost`, `invoice`, `status`, `date`) VALUES
 (1, 'P-6323323', 20, '6000', 'PO-22333252', 'Received', '2019-12-14'),
 (2, 'P-6323323', 100, '30000', 'PO-77333226', 'Received', '2019-12-14'),
-(3, 'P-6323323', 1, '300', 'PO-334537', 'Received', '2020-01-29');
+(3, 'P-6323323', 1, '300', 'PO-334537', 'Received', '2020-01-29'),
+(4, 'P-6323323', 2, '600', 'PO-63222', 'pending', '2020-02-19');
 
 -- --------------------------------------------------------
 
@@ -232,7 +234,7 @@ CREATE TABLE `sales` (
   `transaction_id` int(11) NOT NULL,
   `invoice_number` varchar(100) NOT NULL,
   `cashier` varchar(100) NOT NULL,
-  `date` varchar(100) NOT NULL,
+  `date` varchar(25) NOT NULL,
   `type` varchar(100) NOT NULL,
   `amount` varchar(100) NOT NULL,
   `due_date` varchar(100) NOT NULL,
@@ -253,11 +255,9 @@ CREATE TABLE `sales` (
 --
 
 INSERT INTO `sales` (`transaction_id`, `invoice_number`, `cashier`, `date`, `type`, `amount`, `due_date`, `name`, `balance`, `total_amount`, `cash`, `month`, `year`, `p_amount`, `vat`, `address`, `contact_number`) VALUES
-(1, 'RS-3432903', 'cashier', '11/12/2019', 'cash', '300', '', 'asd', '', '', '500', 'November', '2019', '300', '36', 'asd', '12312321'),
-(2, 'RS-372023', 'cashier', '12/14/2019', 'cash', '600', '', '', '', '', 'Cash', 'December', '2019', '300', '36', 'Seabreeeze', '123123'),
-(3, 'RS-2303303', 'Test3', '01/01/2020', 'cash', '1800', '', '', '', '', '1800', 'January', '2020', '600', '72', 'address', '0912321'),
-(4, 'RS-059022', 'Test3', '01/24/2020', 'cash', '600', '', 'test', '', '', '700', 'January', '2020', '300', '36', 'test', '213'),
-(5, 'RS-83803', 'Admin', '01/29/2020', 'cash', '300', '', '', '', '', '', 'January', '2020', '300', '36', '', '');
+(6, 'RS-53334594', 'Test3', '02/20/2020', 'cash', '600', '', 'te', '', '', '6', 'February', '2020', '300', '36', 'tet', '12312'),
+(7, 'RS-53334594', 'Test3', '02/19/2020', 'cash', '600', '', 'te', '', '', '6', 'February', '2020', '300', '36', 'tet', '12312'),
+(8, 'RS-53334594', 'Test3', '02/20/2020', 'cash', '600', '', 'te', '', '', '6', 'February', '2020', '300', '36', 'tet', '12312');
 
 -- --------------------------------------------------------
 
@@ -296,11 +296,14 @@ INSERT INTO `sales_order` (`transaction_id`, `invoice`, `product`, `qty`, `amoun
 (102, 'RS-83803', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/29/2020', 'January', '2020', '148', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
 (104, 'RS-322033', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/29/2020', 'January', '2020', '148', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'pending'),
 (105, 'RS-330320', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '147', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'pending'),
-(106, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '146', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'served'),
-(107, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '145', 'Daing na bangus w/ egg salad and rice', '0', '300', '3', 'pending'),
-(108, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '144', 'Daing na bangus w/ egg salad and rice', '0', '300', '4', 'pending'),
-(109, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '143', 'Daing na bangus w/ egg salad and rice', '0', '300', '5', 'pending'),
-(110, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '142', 'Daing na bangus w/ egg salad and rice', '0', '300', '6', 'pending');
+(106, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '146', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(107, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '145', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(108, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '144', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(109, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '143', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(110, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '142', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(111, 'RS-22000333', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/19/2020', 'February', '2020', '141', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'served'),
+(112, 'RS-27522303', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/19/2020', 'February', '2020', '140', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'served'),
+(113, 'RS-22000333', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/19/2020', 'February', '2020', '139', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'served');
 
 -- --------------------------------------------------------
 
@@ -344,7 +347,7 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `password`, `name`, `position`) VALUES
 (1, 'admin', 'admin', 'Admin', 'ADMIN'),
 (2, 'test', 'test', 'Test', 'Front Attendant'),
-(3, 'test2', 'test2', 'Test2', 'Kitchen'),
+(3, 'kitchen', 'kitchen', 'Test2', 'Kitchen'),
 (4, 'test3', 'test3', 'Test3', 'Cashier'),
 (5, 'cashier', 'cashier', 'Cashier', 'Cashier');
 
@@ -480,25 +483,25 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `purchases_item`
 --
 ALTER TABLE `purchases_item`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `sales_order`
 --
 ALTER TABLE `sales_order`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
 
 --
 -- AUTO_INCREMENT for table `supliers`
