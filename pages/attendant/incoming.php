@@ -16,12 +16,12 @@ $discount = $_POST['discount'];
 $result = $db->prepare("SELECT * FROM products WHERE product_code= :userid");
 $result->bindParam(':userid', $b);
 $result->execute();
-for($i=0; $row = $result->fetch(); $i++){
-$asasa=$row['price'];
-$name=$row['product_name'];
-$dname=$row['description_name'];
-$categ=$row['category'];
-$qtyleft=$row['qty_left'];
+for ($i = 0; $row = $result->fetch(); $i++) {
+    $asasa = $row['price'];
+    $name = $row['product_name'];
+    $dname = $row['description_name'];
+    $categ = $row['category'];
+    $qtyleft = $row['qty_left'];
 }
 
 // if($order_list){
@@ -45,37 +45,37 @@ $qtyleft=$row['qty_left'];
 //     // header("location:sales.php?id=$w&invoice=$a");
 // }
 
-if(empty($order_list)){
+if (empty($order_list)) {
     //edit qty
-    
+
 
 
     $sql = "UPDATE products 
     SET qty_left=qty_left-?
     WHERE product_code=?";
     $q = $db->prepare($sql);
-    $q->execute(array($c,$b));
-    $fffffff=$asasa-$discount;
-    $d=$fffffff*$c;
-    $z=$qtyleft-$c;
-    $vat=$d*$r;
-    $total=$vat+$d;
+    $q->execute(array($c, $b));
+    $fffffff = $asasa - $discount;
+    $d = $fffffff * $c;
+    $z = $qtyleft - $c;
+    $vat = $d * $r;
+    $total = $vat + $d;
     // query
     $sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,discount,category,date,omonth,oyear,qtyleft,dname,vat,total_amount,table_number,order_status) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k,:l,:m,:n,:o,:p,'pending')";
     $q = $db->prepare($sql);
-    $q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':g'=>$discount,':h'=>$categ,':i'=>$date,':j'=>$month,':k'=>$year,':l'=>$z,':m'=>$dname,':n'=>$vat,':o'=>$total,':p'=>$table_number));
-    $url="sales.php?id=cash&invoice=$a";
-    $url=str_replace(PHP_EOL, '', $url);
+    $q->execute(array(':a' => $a, ':b' => $b, ':c' => $c, ':d' => $d, ':e' => $name, ':f' => $asasa, ':g' => $discount, ':h' => $categ, ':i' => $date, ':j' => $month, ':k' => $year, ':l' => $z, ':m' => $dname, ':n' => $vat, ':o' => $total, ':p' => $table_number));
+    $url = "sales.php?id=cash&invoice=$a&category=";
+    $url = str_replace(PHP_EOL, '', $url);
     header("Location: $url");
     // header("location: sales.php?id=$w&invoice=$a");
-} else if(!empty($order_list)) {
+} else if (!empty($order_list)) {
     //edit qty
 
     $result = $db->prepare("SELECT * FROM sales_order");
     $result->execute();
-    for($i=0; $row = $result->fetch(); $i++){
-        $isInvoice=$row['invoice'];
-        if($isInvoice = $a){
+    for ($i = 0; $row = $result->fetch(); $i++) {
+        $isInvoice = $row['invoice'];
+        if ($isInvoice = $a) {
             $currentTable = $row['table_number'];
         }
     }
@@ -85,18 +85,18 @@ if(empty($order_list)){
     SET qty_left=qty_left-?
     WHERE product_code=?";
     $q = $db->prepare($sql);
-    $q->execute(array($c,$b));
-    $fffffff=$asasa-$discount;
-    $d=$fffffff*$c;
-    $z=$qtyleft-$c;
-    $vat=$d*$r;
-    $total=$vat+$d;
+    $q->execute(array($c, $b));
+    $fffffff = $asasa - $discount;
+    $d = $fffffff * $c;
+    $z = $qtyleft - $c;
+    $vat = $d * $r;
+    $total = $vat + $d;
     // query
     $sql = "INSERT INTO sales_order (invoice,product,qty,amount,name,price,discount,category,date,omonth,oyear,qtyleft,dname,vat,total_amount,table_number,order_status) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k,:l,:m,:n,:o,:p,'pending')";
     $q = $db->prepare($sql);
-    $q->execute(array(':a'=>strchr($order_list, "RS"),':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$name,':f'=>$asasa,':g'=>$discount,':h'=>$categ,':i'=>$date,':j'=>$month,':k'=>$year,':l'=>$z,':m'=>$dname,':n'=>$vat,':o'=>$total,':p'=>$currentTable));
-    $url="sales.php?id=cash&invoice=$a&category=";
-    $url=str_replace(PHP_EOL, '', $url);
+    $q->execute(array(':a' => strchr($order_list, "RS"), ':b' => $b, ':c' => $c, ':d' => $d, ':e' => $name, ':f' => $asasa, ':g' => $discount, ':h' => $categ, ':i' => $date, ':j' => $month, ':k' => $year, ':l' => $z, ':m' => $dname, ':n' => $vat, ':o' => $total, ':p' => $currentTable));
+    $url = "sales.php?id=cash&invoice=$a&category=";
+    $url = str_replace(PHP_EOL, '', $url);
     header("Location: $url");
     // header("location: sales.php?id=$w&invoice=$a");
 }

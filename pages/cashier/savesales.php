@@ -10,7 +10,7 @@ $pamount = $_POST['p_amount'];
 $cname = $_POST['cname'];
 $caddress = $_POST['caddress'];
 $ccontact = $_POST['ccontact'];
-$vat=$pamount*.12;
+// $vat = $pamount * .12;
 $date = date('m-d-Y');
 
 $dmonth = date('F');
@@ -19,6 +19,9 @@ $dyear = date('Y');
 // Query 2
 $order_status = 'paid';
 $table_number = '0';
+
+$total = $_POST['totalD'];
+$discount = $_POST['discount'];
 
 // if($d=='credit') {
 // 	$f = $_POST['due'];
@@ -29,21 +32,21 @@ $table_number = '0';
 // 	exit();
 // }
 
-if($d=='cash') {
+if ($d == 'cash') {
 	$f = $_POST['cash'];
-	$sql = "INSERT INTO sales (invoice_number,cashier,date,type,amount,cash,name,month,year,p_amount,vat, address, contact_number) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:k,:j,:x,:z)";
+	$sql = "INSERT INTO sales (invoice_number,cashier,date,type,amount,cash,name,month,year,p_amount, address, contact_number) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:k,:x,:z)";
 	$q = $db->prepare($sql);
-	$q->execute(array(':a'=>$a,':b'=>$b,':c'=>$c,':d'=>$d,':e'=>$e,':f'=>$f,':g'=>$cname,':h'=>$dmonth,':i'=>$dyear,':k'=>$pamount,':j'=>$vat, ':x'=>$caddress, ':z'=>$ccontact));
-	
+	$q->execute(array(':a' => $a, ':b' => $b, ':c' => $c, ':d' => $d, ':e' => $total, ':f' => $f, ':g' => $cname, ':h' => $dmonth, ':i' => $dyear, ':k' => $pamount, ':x' => $caddress, ':z' => $ccontact));
+
 	$sql2 = "UPDATE sales_order 
         SET order_status=?, table_number=?
 		WHERE invoice=?";
 	$q2 = $db->prepare($sql2);
-	$q2->execute(array($order_status,$table_number,$a));
-	
-	header("location: preview.php?invoice=$a");
+	$q2->execute(array($order_status, $table_number, $a));
+
+	$url = "preview.php?invoice=$a&td=$total&discount=$discount";
+	$url = str_replace(PHP_EOL, '', $url);
+	header("Location: $url");
 	exit();
 }
 // query
-
-?>

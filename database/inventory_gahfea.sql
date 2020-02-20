@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2020 at 12:34 PM
+-- Generation Time: Feb 20, 2020 at 03:55 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -167,7 +167,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`product_id`, `product_code`, `product_name`, `description_name`, `unit`, `cost`, `price`, `supplier`, `qty_left`, `category`, `date_delivered`, `expiration_date`) VALUES
-(1, 'P-6323323', 'Daing na bangus w/ egg salad and rice', 'Daing na bangus w/ egg salad and rice', 'Per Pieces', '400', '300', 'GAHFEA', 139, 'All Day Rice Meal', '2019-11-12', '2020-02-06');
+(1, 'P-6323323', 'Daing na bangus w/ egg salad and rice', 'Daing na bangus w/ egg salad and rice', 'Per Pieces', '400', '300', 'GAHFEA', 118, 'All Day Rice Meal', '2019-11-12', '2020-02-06');
 
 -- --------------------------------------------------------
 
@@ -257,7 +257,21 @@ CREATE TABLE `sales` (
 INSERT INTO `sales` (`transaction_id`, `invoice_number`, `cashier`, `date`, `type`, `amount`, `due_date`, `name`, `balance`, `total_amount`, `cash`, `month`, `year`, `p_amount`, `vat`, `address`, `contact_number`) VALUES
 (6, 'RS-53334594', 'Test3', '02/20/2020', 'cash', '600', '', 'te', '', '', '6', 'February', '2020', '300', '36', 'tet', '12312'),
 (7, 'RS-53334594', 'Test3', '02/19/2020', 'cash', '600', '', 'te', '', '', '6', 'February', '2020', '300', '36', 'tet', '12312'),
-(8, 'RS-53334594', 'Test3', '02/20/2020', 'cash', '600', '', 'te', '', '', '6', 'February', '2020', '300', '36', 'tet', '12312');
+(8, 'RS-53334594', 'Test3', '02/20/2020', 'cash', '600', '', 'te', '', '', '6', 'February', '2020', '300', '36', 'tet', '12312'),
+(9, 'RS-22000333', 'Test3', '02/20/2020', 'cash', '500', '', 'test', '', '', '600', 'February', '2020', '300', '36', 'test', ''),
+(10, 'RS-27522303', 'Test3', '02/20/2020', 'cash', '300', '', 'qwe', '', '', '400', 'February', '2020', '300', '36', 'wqe', '123'),
+(11, 'RS-330320', 'Test3', '02/20/2020', 'cash', '600', '', 'test', '', '', '500', 'February', '2020', '300', '36', 'test', '21312312'),
+(12, '', 'Test3', '02/20/2020', 'cash', '', '', 'qwe', '', '', '23', 'February', '2020', '<br /><b>Notice</b>:  Undefine', '0', 'wqe', '123'),
+(13, 'RS-308373', 'Test3', '02/20/2020', 'cash', '300', '', 'te', '', '', '300', 'February', '2020', '300', '36', 'te', '123'),
+(14, '/', 'Test3', '02/20/2020', 'cash', '', '', 'asd', '', '', '33', 'February', '2020', '<br /><b>Notice</b>:  Undefine', '', 'asd', '22'),
+(15, 'RS-8723262', 'Test3', '02/20/2020', 'cash', '300', '', 'qwe', '', '', '300', 'February', '2020', '300', '', 'wqe', '09454296723'),
+(16, 'RS-20032224', 'Test3', '02/20/2020', 'cash', '2,782.42', '', 'Kenneth Solomon', '', '', '3000', 'February', '2020', '300', '', 'Seabreeze Cabid-an', '09454296723'),
+(17, 'RS-20032224', 'Test3', '02/20/2020', 'cash', '2,782.42', '', 'Kenneth Solomon', '', '', '3000', 'February', '2020', '300', '', 'Seabreeze Cabid-an', '09454296723'),
+(18, '', 'Test3', '02/20/2020', 'cash', '0.00', '', 'Kenneth Solomon', '', '', '12323', 'February', '2020', '<br /><b>Notice</b>:  Undefine', '', 'Seabreeze Cabid-an', '09454296723'),
+(19, 'RS-7532237', 'Test3', '02/20/2020', 'cash', '540.00', '', 'Kenneth Solomon', '', '', '600', 'February', '2020', '300', '', 'Seabreeze Cabid-an', '09454296723'),
+(20, '', 'Test3', '02/20/2020', 'cash', '0', '', 'Kenneth Solomon', '', '', '23', 'February', '2020', '<br /><b>Notice</b>:  Undefine', '', 'Seabreeze Cabid-an', '09454296723'),
+(21, 'RS-3002233', 'Test3', '02/20/2020', 'cash', '540', '', 'Kenneth Solomon', '', '', '600', 'February', '2020', '300', '', 'Seabreeze Cabid-an', '09454296723'),
+(22, 'RS-2026233', 'Test3', '02/20/2020', 'cash', '480', '', 'Kenneth Solomon', '', '', '1000', 'February', '2020', '300', '', 'Seabreeze Cabid-an', '09454296723');
 
 -- --------------------------------------------------------
 
@@ -294,16 +308,35 @@ INSERT INTO `sales_order` (`transaction_id`, `invoice`, `product`, `qty`, `amoun
 (99, 'RS-059022', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/24/2020', 'January', '2020', '149', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
 (100, 'RS-059022', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/24/2020', 'January', '2020', '148', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
 (102, 'RS-83803', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/29/2020', 'January', '2020', '148', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
-(104, 'RS-322033', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '01/29/2020', 'January', '2020', '148', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'pending'),
-(105, 'RS-330320', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '147', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'pending'),
+(105, 'RS-330320', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '147', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
 (106, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '146', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
 (107, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '145', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
 (108, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '144', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
 (109, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '143', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
 (110, 'RS-53334594', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/03/2020', 'February', '2020', '142', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
-(111, 'RS-22000333', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/19/2020', 'February', '2020', '141', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'served'),
-(112, 'RS-27522303', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/19/2020', 'February', '2020', '140', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'served'),
-(113, 'RS-22000333', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/19/2020', 'February', '2020', '139', 'Daing na bangus w/ egg salad and rice', '0', '300', '1', 'served');
+(111, 'RS-22000333', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/19/2020', 'February', '2020', '141', 'Daing na bangus w/ egg salad and rice', '0', '200', '0', 'paid'),
+(112, 'RS-27522303', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/19/2020', 'February', '2020', '140', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(113, 'RS-22000333', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/19/2020', 'February', '2020', '139', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(115, 'RS-308373', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '138', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(117, 'RS-330320', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '136', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(118, 'RS-20032224', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '135', 'Daing na bangus w/ egg salad and rice', '0', '2791.57776', '0', 'paid'),
+(119, 'RS-20032224', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '134', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(120, 'RS-20032224', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '133', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(121, 'RS-8723262', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '132', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(122, 'RS-7532237', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '131', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(123, 'RS-7532237', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '130', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(124, 'RS-3002233', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '129', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(125, 'RS-3002233', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '128', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(126, 'RS-2030260', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '127', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'served'),
+(127, 'RS-2030260', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '126', 'Daing na bangus w/ egg salad and rice', '0', '300', '2', 'served'),
+(128, 'RS-32305263', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '125', 'Daing na bangus w/ egg salad and rice', '0', '300', '3', 'served'),
+(129, 'RS-32305263', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '124', 'Daing na bangus w/ egg salad and rice', '0', '300', '3', 'served'),
+(130, 'RS-2026233', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '123', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(131, 'RS-2026233', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '122', 'Daing na bangus w/ egg salad and rice', '0', '300', '0', 'paid'),
+(132, 'RS-523232', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '121', 'Daing na bangus w/ egg salad and rice', '0', '300', '5', 'served'),
+(133, 'RS-523232', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '120', 'Daing na bangus w/ egg salad and rice', '0', '300', '5', 'served'),
+(134, 'RS-5382202', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '119', 'Daing na bangus w/ egg salad and rice', '0', '300', '6', 'served'),
+(135, 'RS-5382202', 'P-6323323', '1', '300', 'Daing na bangus w/ egg salad and rice', '300', '0', 'All Day Rice Meal', '02/20/2020', 'February', '2020', '118', 'Daing na bangus w/ egg salad and rice', '0', '300', '6', 'served');
 
 -- --------------------------------------------------------
 
@@ -495,13 +528,13 @@ ALTER TABLE `purchases_item`
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `sales_order`
 --
 ALTER TABLE `sales_order`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=115;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=136;
 
 --
 -- AUTO_INCREMENT for table `supliers`

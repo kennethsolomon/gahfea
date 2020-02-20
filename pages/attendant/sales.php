@@ -356,7 +356,7 @@
 
   <div class="row" style="margin-bottom:20px">
     <div class="col-lg-12">
-      <a onClick="javascript: return confirm('Proceed to Next Customer?');" class="btn btn-success" href="sales.php?id=cash&invoice=<?php echo $finalcode ?>">Next Customer</a>
+      <a onClick="javascript: return confirm('Proceed to Next Customer?');" class="btn btn-success" href="sales.php?id=cash&category=&invoice=<?php echo $finalcode ?>">Next Customer</a>
     </div>
   </div>
 

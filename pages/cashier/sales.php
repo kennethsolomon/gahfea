@@ -94,21 +94,24 @@
               <option>4</option>
               <option>5</option>
               <option>6</option>
-              <!-- <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-                <option>13</option>
-                <option>14</option>
-                <option>15</option>
-                <option>16</option> -->
             </select>
-            <br />
         </div>
       </div>
       </form>
+      <div style="margin-top: 150px; "> </div>
+      <form action="addDiscount.php" method="get" id="formDiscount" name="formDiscount" class="form-group">
+        <input type="hidden" name="invoice" class="form-control" value=<?php echo $_GET['invoice']; ?> />
+        <input type="hidden" name="table_number" class="form-control" value=<?php echo $_GET['table_number']; ?> />
+        <label style="color:white">Select Discount:</label>
+        <select name="discount" id="discount" style="width:90px;margin-top:0px" class="chzn-select" required onchange="formDiscount.submit()">
+          <option><?php echo $_GET['cdiscount']; ?></option>
+          <option disabled>======</option>
+          <option value="0">0%</option>
+          <option value="0.10">10%</option>
+          <option value="0.20">20%</option>
+        </select>
+      </form>
+
       <div class="row" style=>
         <div class="col-lg-4">
           <br />
@@ -177,13 +180,16 @@
               ?>
             </td>
 
-            <!-- <td><a href="delete.php?id=<?php echo $row['transaction_id']; ?>&invoice=<?php echo $_GET['invoice']; ?>&dle=<?php echo $_GET['id']; ?>&qty=<?php echo $row['qty']; ?>&code=<?php echo $row['product']; ?>"> Delete</a></td> -->
-            <td><a rel="facebox" class="btn btn-primary" href="editorder.php?id=<?php echo $row['transaction_id']; ?>">
-                <i class="fa fa-pencil"></i>
-              </a>
+            <td>
               <a href="#" id="<?php echo $row['transaction_id']; ?>" class="btn btn-danger delbutton" title="Click To Delete">
                 <i class="fa fa-trash"></i>
               </a>
+
+
+              <!-- <a rel="facebox" class="btn btn-primary" href="editorder.php?id=<?php echo $row['transaction_id']; ?>">
+                <i class="fa fa-pencil"></i>
+              </a> -->
+
             </td>
           </tr>
         <?php
@@ -201,7 +207,9 @@
             $resultas->execute();
             for ($i = 0; $rowas = $resultas->fetch(); $i++) {
               $fgfg = $rowas['sum(total_amount)'];
-              echo formatMoney($fgfg, true);
+              $discountAmount = $_GET['discount'];
+              $totalDiscount = $fgfg - ($fgfg * $discountAmount);
+              echo formatMoney($totalDiscount, true);
             }
           }   ?>
             </strong></td>
@@ -209,8 +217,7 @@
 
         </tbody>
         </table><br>
-        <a rel="facebox" class="btn btn-primary" href="checkout.php?pt=cash&invoice=<?php echo $_GET['invoice'] ?>&total=<?php echo $fgfg ?>&cashier=<?php echo $session_cashier_name ?>&p_amount=<?php echo $ccc ?>">Check Out</a>
-
+        <a rel="facebox" class="btn btn-primary" href="checkout.php?discount=<?php echo $_GET['discount']; ?>&totalD=<?php echo $totalDiscount; ?>&pt=cash&invoice=<?php echo $_GET['invoice'] ?>&total=<?php echo $fgfg ?>&cashier=<?php echo $session_cashier_name ?>&p_amount=<?php echo $ccc ?>">Check Out</a>
 
         <div class="clearfix"></div>
     </div>
@@ -273,18 +280,7 @@
 
     });
   </script>
-  <script>
-    $(document).ready(function() {
-      $(document).on('change', '#table_number', function() {
-        var table_number = $('#table_number').val();
-        $.ajax({
-          success: function(response) {
-            window.history.pushState("getinvoiceid", "Title", "/gahfea/pages/cashier/sales.php?invoice=<?php echo $_GET['invoice']; ?>&table_number=" + table_number);
-          }
-        });
-      });
-    });
-  </script>
+
 </body>
 
 </html>
