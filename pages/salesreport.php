@@ -431,17 +431,18 @@ require_once('auth.php');
                                     $wto = $_POST["wto"];
                                     $wyear = $_POST["wyear"];
 
-                                    $result = $db->prepare("SELECT sum(amount), date, month, year FROM sales WHERE month = '$wmonth' AND year = '$wyear' ");
+                                    $result = $db->prepare("SELECT amount, date, month, year FROM sales WHERE month = '$wmonth' AND year = '$wyear' ");
                                     $result->execute();
                                     for ($i = 0; $rows = $result->fetch(); $i++) {
                                         $getDate = $rows['date'];
                                         $date = substr($getDate, 3, 2);
 
                                         if ($date >= $wfrom && $date <= $wto) {
-                                            $dsdsd = $rows['sum(amount)'];
-                                            echo formatMoney($dsdsd, true);
+                                            $dsdsd += $rows['amount'];
+                                            $rowammount = $rows['amount'];
                                         }
                                     }
+                                    echo formatMoney($dsdsd - $rowammount, true);
                                 }
 
                                 ?>
