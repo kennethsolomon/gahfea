@@ -244,7 +244,7 @@
             url: "deleteorder.php",
             data: info,
             success: function() {
-              document.location.href = 'sales.php';
+              document.location.href = 'sales.php?invoice=<?php $_GET['invoice'] ?>&discount=<?php $_GET['discount'] ?>&table_number=<?php $_GET['table_number'] ?>&cdiscount=<?php $_GET['cdiscount'] ?>';
             }
           });
           // $(this).parents(".record").animate({ backgroundColor: "#fbc7c7" }, "fast")
